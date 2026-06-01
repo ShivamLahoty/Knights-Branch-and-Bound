@@ -34,25 +34,11 @@ from ilp_solver import ILPSolver
 from utils import make_result
 
 
-# ─────────────────────────────────────────────────────────────────────────────
-# Node dataclass
-# ─────────────────────────────────────────────────────────────────────────────
+
 
 @dataclass
 class Node:
-    """
-    One node in the B&B search tree.
 
-    fixed_vars : dict {square_index: 0_or_1}
-                 Variables that have been fixed on the path from the root
-                 to this node.  Passed directly into ILPSolver.solve(fixed_vars=...)
-
-    lb         : lower bound = LP relaxation objective at this node.
-                 Used to decide pruning and heap ordering.
-
-    depth      : how deep in the tree (root = 0).
-                 Used by depth-first / breadth-first strategies.
-    """
     lb:         float
     depth:      int
     fixed_vars: dict = field(default_factory=dict)
@@ -62,27 +48,15 @@ class Node:
         return self.lb < other.lb
 
 
-# ─────────────────────────────────────────────────────────────────────────────
-# Greedy starting heuristic  →  gives the initial upper bound
-# ─────────────────────────────────────────────────────────────────────────────
+
 
 def greedy_heuristic(board: Board) -> tuple[int, list[int]]:
-    """
-    Greedy knight placement:  repeatedly pick the square whose knight
-    threatens the most currently un-threatened squares, until every
-    square is covered.
 
-    Returns (num_knights, placement_list).
-
-    Why we need this:
-        A good starting UB means the very first nodes can already be
-        pruned, dramatically cutting the tree size.
-    """
     n_sq       = board.num_squares
     threatened = [False] * n_sq
     placed     = []
 
-    # attacks_from[i] = set of squares that a knight on i threatens
+   
     attacks_from = [set(board.attacks_from(sq)) for sq in range(n_sq)]
 
     while not all(threatened):
@@ -113,11 +87,7 @@ def greedy_heuristic(board: Board) -> tuple[int, list[int]]:
 # ─────────────────────────────────────────────────────────────────────────────
 
 def _free_fractionals(x_values: list[float], fixed_vars: dict) -> list[tuple[float, int]]:
-    """
-    Return list of (fractional_value, index) for variables that are:
-      - not already fixed (not in fixed_vars)
-      - genuinely fractional (not within 1e-6 of 0 or 1)
-    """
+
     result = []
     for i, v in enumerate(x_values):
         if i in fixed_vars:
@@ -129,13 +99,7 @@ def _free_fractionals(x_values: list[float], fixed_vars: dict) -> list[tuple[flo
 
 
 def select_most_constrained(x_values: list[float], fixed_vars: dict) -> Optional[int]:
-    """
-    Pick the fractional variable closest to 0.5.
 
-    Rationale: this variable is the most "undecided" — fixing it will
-    cause the largest change in the LP, giving stronger pruning.
-    This is the standard choice in most B&B implementations.
-    """
     candidates = _free_fractionals(x_values, fixed_vars)
     if not candidates:
         return None
@@ -144,13 +108,7 @@ def select_most_constrained(x_values: list[float], fixed_vars: dict) -> Optional
 
 
 def select_least_constrained(x_values: list[float], fixed_vars: dict) -> Optional[int]:
-    """
-    Pick the fractional variable furthest from 0.5 (closest to 0 or 1).
 
-    Rationale: this variable "almost" has a natural value; fixing it
-    disturbs the LP the least.  Usually weaker than most_constrained,
-    but included for the statistical comparison.
-    """
     candidates = _free_fractionals(x_values, fixed_vars)
     if not candidates:
         return None
@@ -158,36 +116,15 @@ def select_least_constrained(x_values: list[float], fixed_vars: dict) -> Optiona
 
 
 def select_first_fractional(x_values: list[float], fixed_vars: dict) -> Optional[int]:
-    """
-    Pick the first fractional variable by index order.
 
-    Rationale: no computation, good baseline.  Shows how much the
-    smarter rules actually help.
-    """
     candidates = _free_fractionals(x_values, fixed_vars)
     if not candidates:
         return None
     return min(candidates, key=lambda t: t[1])[1]   # smallest index
 
 
-# ─────────────────────────────────────────────────────────────────────────────
-# BnBSolver — main class
-# ─────────────────────────────────────────────────────────────────────────────
 
 class BnBSolver:
-    """
-    Branch and Bound solver for the Knights Domination problem.
-
-    Parameters
-    ----------
-    n           : board size (n × n)
-    strategy    : node selection — 'best_first' | 'depth_first' | 'breadth_first'
-    branch_var  : variable selection — 'most_constrained' | 'least_constrained'
-                  | 'first_fractional'
-    branch_order: which child to explore first — 'zero_first' | 'one_first'
-    time_limit  : wall-clock seconds before we stop and return best found
-    verbose     : print progress messages
-    """
 
     # Map string names (from main.py argparse) to selector functions
     VAR_SELECTORS = {
@@ -225,13 +162,7 @@ class BnBSolver:
     # ── Heap helpers ─────────────────────────────────────────────────────────
 
     def _priority(self, node: Node) -> tuple:
-        """
-        Heap priority key for a node.  heapq is a min-heap, so smaller = explored first.
 
-        best_first   → lowest lb first      (best pruning power)
-        depth_first  → deepest first        (negate depth so deeper = smaller key)
-        breadth_first→ shallowest first     (smallest depth)
-        """
         if self.strategy == "best_first":
             return (node.lb, node.depth)
         elif self.strategy == "depth_first":
@@ -247,14 +178,7 @@ class BnBSolver:
     # ── LP solve wrapper ─────────────────────────────────────────────────────
 
     def _solve_lp(self, fixed_vars: dict) -> dict:
-        """
-        Solve the LP relaxation with the given variable fixings.
-        Delegates to ILPSolver.solve(relax=True, fixed_vars=...).
 
-        Normalises the result so callers can always safely read
-        result["status"], result["obj_value"], result["x_values"]
-        without KeyError — regardless of what Gurobi returns.
-        """
         raw = self.lp_engine.solve(relax=True, fixed_vars=fixed_vars, verbose=False)
 
         # Guarantee these keys always exist
@@ -273,13 +197,8 @@ class BnBSolver:
     # ── Main solve ────────────────────────────────────────────────────────────
 
     def solve(self) -> dict:
-        """
-        Run Branch and Bound.
+        
 
-        Returns a standardised result dict (make_result format from utils.py):
-            solver, n, status, num_knights, placement, solve_time,
-            nodes_explored, upper_bound, lower_bound
-        """
         start_time = time.perf_counter()
 
         # ── Stats counters ────────────────────────────────────────────────
@@ -421,12 +340,6 @@ class BnBSolver:
                 )
                 self._push(heap, child_node, counter)
 
-        # ── Step 5: wrap up ───────────────────────────────────────────────
-        elapsed = time.perf_counter() - start_time
-
-        # Provably optimal only if we exhausted the entire tree (heap empty).
-        # If we stopped due to time limit, it's a timeout — even if we
-        # improved on the heuristic, we cannot guarantee optimality.
         if not heap:
             status = "optimal"
         else:
@@ -444,7 +357,7 @@ class BnBSolver:
             print(f"[BnB] ───────────────────────────────────────────────────")
 
         return make_result(
-            solver         = f"BnB_{self.strategy}_{self.branch_var}",
+            solver         = f"{self.strategy}_{self.branch_var}",
             n              = self.n,
             status         = status,
             num_knights    = best_val,
@@ -462,9 +375,7 @@ class BnBSolver:
         )
 
 
-# ─────────────────────────────────────────────────────────────────────────────
-# Quick smoke test — run this file directly
-# ─────────────────────────────────────────────────────────────────────────────
+
 
 if __name__ == "__main__":
     from utils import print_comparison_table

@@ -85,9 +85,9 @@ def main():
     print_header("Running B&B Experiments (Mock Mode)")
     
     # 1. Define the experiment grid
-    sizes = [4, 5, 6]
+    sizes = [4, 5, 6, 7, 8, 9]
     strategies = ['best_first', 'depth_first', 'breadth_first']
-    branch_vars = ['most_constrained', 'first_fractional']
+    branch_vars = ['most_constrained', 'first_fractional', 'least_constrained']
     
     results = []
     

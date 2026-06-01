@@ -1,0 +1,55 @@
+solver,n,status,num_knights,placement,solve_time,nodes_explored,upper_bound,lower_bound,timestamp,branch_var
+BnB_best_first,4,optimal,4,"[4, 3, 7, 10]",4.265171,433,,,2026-06-01T20:03:37.484643,most_constrained
+BnB_best_first,4,optimal,4,"[2, 0, 6, 10]",2.779301,442,,,2026-06-01T20:03:37.516638,first_fractional
+BnB_best_first,4,optimal,4,"[13, 15, 10, 1]",2.143248,791,,,2026-06-01T20:03:37.548367,least_constrained
+BnB_depth_first,4,optimal,4,"[4, 3, 0, 7]",1.219792,868,,,2026-06-01T20:03:37.568183,most_constrained
+BnB_depth_first,4,optimal,4,"[7, 10, 4, 14]",2.608164,364,,,2026-06-01T20:03:37.596809,first_fractional
+BnB_depth_first,4,optimal,4,"[1, 7, 14, 10]",3.603975,792,,,2026-06-01T20:03:37.632763,least_constrained
+BnB_breadth_first,4,optimal,4,"[8, 13, 14, 12]",1.170695,484,,,2026-06-01T20:03:37.644208,most_constrained
+BnB_breadth_first,4,optimal,4,"[4, 5, 9, 12]",0.595195,658,,,2026-06-01T20:03:37.684202,first_fractional
+BnB_breadth_first,4,optimal,4,"[3, 0, 15, 13]",2.441774,448,,,2026-06-01T20:03:37.727231,least_constrained
+BnB_best_first,5,optimal,5,"[11, 15, 20, 1, 2]",0.588904,120,,,2026-06-01T20:03:37.749336,most_constrained
+BnB_best_first,5,optimal,5,"[10, 23, 15, 5, 2]",0.719339,495,,,2026-06-01T20:03:37.761082,first_fractional
+BnB_best_first,5,optimal,5,"[24, 0, 14, 15, 20]",1.659737,27,,,2026-06-01T20:03:37.810849,least_constrained
+BnB_depth_first,5,optimal,5,"[12, 23, 0, 16, 7]",0.751816,746,,,2026-06-01T20:03:37.826823,most_constrained
+BnB_depth_first,5,optimal,5,"[22, 6, 15, 17, 0]",3.625513,278,,,2026-06-01T20:03:37.857729,first_fractional
+BnB_depth_first,5,optimal,5,"[4, 6, 22, 3, 2]",3.163768,948,,,2026-06-01T20:03:37.869254,least_constrained
+BnB_breadth_first,5,optimal,5,"[6, 5, 19, 24, 10]",4.917356,185,,,2026-06-01T20:03:37.892311,most_constrained
+BnB_breadth_first,5,optimal,5,"[24, 20, 18, 6, 22]",0.702496,631,,,2026-06-01T20:03:37.939995,first_fractional
+BnB_breadth_first,5,optimal,5,"[10, 11, 6, 17, 1]",3.958553,806,,,2026-06-01T20:03:37.969351,least_constrained
+BnB_best_first,6,optimal,6,"[25, 34, 31, 10, 23, 26]",4.688293,128,,,2026-06-01T20:03:37.996364,most_constrained
+BnB_best_first,6,optimal,6,"[25, 12, 3, 2, 11, 1]",3.243577,226,,,2026-06-01T20:03:38.026661,first_fractional
+BnB_best_first,6,optimal,6,"[29, 6, 20, 30, 2, 27]",3.712622,856,,,2026-06-01T20:03:38.038548,least_constrained
+BnB_depth_first,6,optimal,6,"[26, 28, 21, 19, 6, 25]",4.014362,321,,,2026-06-01T20:03:38.056744,most_constrained
+BnB_depth_first,6,optimal,6,"[8, 29, 16, 3, 10, 5]",0.724296,951,,,2026-06-01T20:03:38.094876,first_fractional
+BnB_depth_first,6,optimal,6,"[7, 14, 15, 26, 28, 8]",1.012418,494,,,2026-06-01T20:03:38.124114,least_constrained
+BnB_breadth_first,6,optimal,6,"[10, 16, 2, 27, 11, 23]",3.825077,770,,,2026-06-01T20:03:38.170374,most_constrained
+BnB_breadth_first,6,optimal,6,"[9, 18, 21, 3, 26, 10]",0.824919,790,,,2026-06-01T20:03:38.199647,first_fractional
+BnB_breadth_first,6,optimal,6,"[29, 12, 33, 10, 21, 8]",2.312537,756,,,2026-06-01T20:03:38.218380,least_constrained
+BnB_best_first,7,optimal,7,"[2, 15, 36, 38, 8, 39, 16]",3.439426,205,,,2026-06-01T20:03:38.238011,most_constrained
+BnB_best_first,7,optimal,7,"[21, 31, 45, 43, 22, 36, 2]",4.104882,919,,,2026-06-01T20:03:38.284036,first_fractional
+BnB_best_first,7,optimal,7,"[31, 42, 38, 25, 48, 1, 3]",1.115578,66,,,2026-06-01T20:03:38.309726,least_constrained
+BnB_depth_first,7,optimal,7,"[6, 3, 40, 32, 16, 47, 15]",0.113484,114,,,2026-06-01T20:03:38.349521,most_constrained
+BnB_depth_first,7,optimal,7,"[15, 38, 28, 30, 23, 11, 34]",2.029808,367,,,2026-06-01T20:03:38.378157,first_fractional
+BnB_depth_first,7,optimal,7,"[10, 11, 27, 7, 19, 12, 26]",3.913119,400,,,2026-06-01T20:03:38.394361,least_constrained
+BnB_breadth_first,7,optimal,7,"[41, 19, 43, 8, 17, 21, 3]",3.30305,136,,,2026-06-01T20:03:38.407318,most_constrained
+BnB_breadth_first,7,optimal,7,"[37, 43, 15, 33, 24, 45, 47]",3.143896,450,,,2026-06-01T20:03:38.429998,first_fractional
+BnB_breadth_first,7,optimal,7,"[48, 30, 35, 40, 1, 46, 44]",4.355826,423,,,2026-06-01T20:03:38.467547,least_constrained
+BnB_best_first,8,optimal,8,"[56, 25, 45, 42, 37, 28, 27, 47]",0.476524,293,,,2026-06-01T20:03:38.517097,most_constrained
+BnB_best_first,8,optimal,8,"[23, 43, 15, 3, 61, 5, 58, 34]",2.996183,768,,,2026-06-01T20:03:38.536678,first_fractional
+BnB_best_first,8,optimal,8,"[56, 33, 15, 9, 10, 53, 63, 1]",1.896406,163,,,2026-06-01T20:03:38.554906,least_constrained
+BnB_depth_first,8,optimal,8,"[13, 14, 18, 22, 33, 16, 61, 5]",4.08592,431,,,2026-06-01T20:03:38.571646,most_constrained
+BnB_depth_first,8,optimal,8,"[12, 16, 27, 29, 1, 60, 62, 32]",0.818086,264,,,2026-06-01T20:03:38.604937,first_fractional
+BnB_depth_first,8,optimal,8,"[20, 23, 19, 58, 13, 2, 14, 6]",3.732195,508,,,2026-06-01T20:03:38.619117,least_constrained
+BnB_breadth_first,8,optimal,8,"[63, 10, 2, 60, 61, 39, 62, 11]",3.978588,990,,,2026-06-01T20:03:38.643650,most_constrained
+BnB_breadth_first,8,optimal,8,"[47, 30, 14, 18, 25, 1, 34, 60]",2.548008,669,,,2026-06-01T20:03:38.672767,first_fractional
+BnB_breadth_first,8,optimal,8,"[46, 63, 1, 24, 4, 47, 33, 39]",0.538704,123,,,2026-06-01T20:03:38.720722,least_constrained
+BnB_best_first,9,optimal,9,"[58, 28, 20, 46, 22, 69, 77, 26, 54]",1.836322,95,,,2026-06-01T20:03:38.772204,most_constrained
+BnB_best_first,9,optimal,9,"[30, 27, 69, 37, 45, 18, 14, 62, 63]",4.258959,331,,,2026-06-01T20:03:38.821093,first_fractional
+BnB_best_first,9,optimal,9,"[14, 49, 10, 75, 15, 33, 67, 80, 77]",1.912266,710,,,2026-06-01T20:03:38.845902,least_constrained
+BnB_depth_first,9,optimal,9,"[50, 47, 72, 28, 49, 14, 43, 69, 22]",4.136485,870,,,2026-06-01T20:03:38.882027,most_constrained
+BnB_depth_first,9,optimal,9,"[11, 50, 62, 43, 2, 37, 42, 3, 4]",0.959017,653,,,2026-06-01T20:03:38.894066,first_fractional
+BnB_depth_first,9,optimal,9,"[56, 39, 59, 2, 38, 16, 49, 0, 46]",4.892786,361,,,2026-06-01T20:03:38.920000,least_constrained
+BnB_breadth_first,9,optimal,9,"[76, 49, 34, 73, 3, 77, 58, 20, 53]",1.207741,785,,,2026-06-01T20:03:38.951635,most_constrained
+BnB_breadth_first,9,optimal,9,"[22, 61, 79, 32, 11, 48, 56, 18, 51]",2.368184,258,,,2026-06-01T20:03:38.979026,first_fractional
+BnB_breadth_first,9,optimal,9,"[3, 80, 15, 17, 62, 5, 47, 4, 27]",3.07736,42,,,2026-06-01T20:03:39.005480,least_constrained

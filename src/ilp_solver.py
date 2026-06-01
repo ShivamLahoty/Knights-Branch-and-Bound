@@ -48,9 +48,7 @@ class ILPSolver:
             # Build model
             # --------------------------------------------------------
             model = gp.Model(f"knights_{self.n}x{self.n}")
-
-            if not verbose:
-                model.setParam("OutputFlag", 0)
+            model.setParam("OutputFlag", 0)
 
                       
             if relax:
