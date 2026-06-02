@@ -81,7 +81,7 @@ def visualize_results(csv_path):
     fig, axes = plt.subplots(
         3,
         2,
-        figsize=(18, 18)
+        figsize=(18, 12)
     )
 
     fig.suptitle(
