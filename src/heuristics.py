@@ -367,35 +367,40 @@ if __name__ == "__main__":
 
     # Fake LP: two fractional squares, rest integer
     x = [0.0] * 25
-    x[7]  = 0.48   # close to 0.5 → most_constrained should pick this
+    x[7] = 0.48   # close to 0.5 → most_constrained should pick this
     x[12] = 0.85   # far from 0.5 → least_constrained should pick this
-    x[3]  = 0.6    # fractional but not extreme
+    x[3] = 0.6    # fractional but not extreme
     fixed: dict[int, int] = {0: 1, 1: 0}
 
-    mc  = select_most_constrained(x, fixed)
-    lc  = select_least_constrained(x, fixed)
-    ff  = select_first_fractional(x, fixed)
+    mc = select_most_constrained(x, fixed)
+    lc = select_least_constrained(x, fixed)
+    ff = select_first_fractional(x, fixed)
     cov = select_most_coverage(b5, x, fixed)
 
     print(f"  most_constrained  → sq {mc}  (expect 7, |0.48-0.5|=0.02 is min)")
-    print(f"  least_constrained → sq {lc}  (expect 12, |0.85-0.5|=0.35 is max)")
+    print(
+        f"  least_constrained → sq {lc}  (expect 12, |0.85-0.5|=0.35 is max)")
     print(f"  first_fractional  → sq {ff}  (expect 3, lowest index)")
     print(f"  most_coverage     → sq {cov} (highest uncovered attack count)")
 
-    assert mc  == 7,  f"most_constrained failed: got {mc}"
-    assert lc  == 12, f"least_constrained failed: got {lc}"
-    assert ff  == 3,  f"first_fractional failed: got {ff}"
+    assert mc == 7,  f"most_constrained failed: got {mc}"
+    assert lc == 12, f"least_constrained failed: got {lc}"
+    assert ff == 3,  f"first_fractional failed: got {ff}"
 
     # ── pick_branch_order ────────────────────────────────────────────
     print("\n--- pick_branch_order ---")
-    print(f"  lp_guided sq=7  (x=0.48) → {pick_branch_order(7,  x, 'lp_guided')}  (expect [0,1])")
-    print(f"  lp_guided sq=12 (x=0.85) → {pick_branch_order(12, x, 'lp_guided')}  (expect [1,0])")
-    print(f"  one_first  sq=7          → {pick_branch_order(7,  x, 'one_first')}   (expect [1,0])")
-    print(f"  zero_first sq=7          → {pick_branch_order(7,  x, 'zero_first')}  (expect [0,1])")
+    print(
+        f"  lp_guided sq=7  (x=0.48) → {pick_branch_order(7,  x, 'lp_guided')}  (expect [0,1])")
+    print(
+        f"  lp_guided sq=12 (x=0.85) → {pick_branch_order(12, x, 'lp_guided')}  (expect [1,0])")
+    print(
+        f"  one_first  sq=7          → {pick_branch_order(7,  x, 'one_first')}   (expect [1,0])")
+    print(
+        f"  zero_first sq=7          → {pick_branch_order(7,  x, 'zero_first')}  (expect [0,1])")
 
-    assert pick_branch_order(7,  x, "lp_guided")  == [0, 1]
-    assert pick_branch_order(12, x, "lp_guided")  == [1, 0]
-    assert pick_branch_order(7,  x, "one_first")  == [1, 0]
+    assert pick_branch_order(7,  x, "lp_guided") == [0, 1]
+    assert pick_branch_order(12, x, "lp_guided") == [1, 0]
+    assert pick_branch_order(7,  x, "one_first") == [1, 0]
     assert pick_branch_order(7,  x, "zero_first") == [0, 1]
 
     print("\nAll smoke tests passed ✓")

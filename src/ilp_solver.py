@@ -20,13 +20,13 @@ class ILPSolver:
         self.n = n
         self.board = Board(n)
         self.attack_matrix = self.board.get_attack_matrix()
-        
+
     def solve(
-    self,
-    verbose: bool = False,
-    relax: bool = False,
-    fixed_vars: dict[int, int] = None
-        ) -> dict:
+        self,
+        verbose: bool = False,
+        relax: bool = False,
+        fixed_vars: dict[int, int] = None
+    ) -> dict:
         if not GUROBI_AVAILABLE:
             return {'status': 'error', 'message': 'Gurobi not installed'}
 
@@ -50,7 +50,6 @@ class ILPSolver:
             model = gp.Model(f"knights_{self.n}x{self.n}")
             model.setParam("OutputFlag", 0)
 
-                      
             if relax:
                 x = model.addVars(
                     n_sq,
@@ -60,21 +59,20 @@ class ILPSolver:
                     name="x"
                 )
             else:
-                 x = model.addVars(
-                     n_sq,
+                x = model.addVars(
+                    n_sq,
                     vtype=GRB.BINARY,
-                    name = "x"
-                 )
+                    name="x"
+                )
             if fixed_vars:
                 for var_idx, value in fixed_vars.items():
-                
-                 x[var_idx].lb = float(value)
+
+                    x[var_idx].lb = float(value)
                 x[var_idx].ub = float(value)
-            
-        
-                 
+
             # Objective: minimize total knights placed
-            model.setObjective(gp.quicksum(x[i] for i in range(n_sq)), GRB.MINIMIZE)
+            model.setObjective(gp.quicksum(x[i]
+                               for i in range(n_sq)), GRB.MINIMIZE)
 
             # Constraints: every square j must be threatened
             for j in range(n_sq):
@@ -104,14 +102,14 @@ class ILPSolver:
                 result['status'] = 'optimal'
                 result['obj_value'] = model.ObjVal
                 result['x_values'] = [
-                 x[i].X for i in range(n_sq)
+                    x[i].X for i in range(n_sq)
                 ]
                 result['num_knights'] = int(round(model.ObjVal))
                 if not relax:
                     result['placement'] = [
-                    i for i in range(n_sq)
-                    if x[i].X > 0.5
-             ]
+                        i for i in range(n_sq)
+                        if x[i].X > 0.5
+                    ]
             elif model.Status == GRB.INFEASIBLE:
                 result['status'] = 'infeasible'
             else:
@@ -129,14 +127,15 @@ class ILPSolver:
         print(f"ILP Solver — {self.n}x{self.n} board")
         print(f"{'='*50}")
 
-        result = self.solve(relax = False)
+        result = self.solve(relax=False)
 
         if result['status'] == 'optimal':
             print(f"Status      : OPTIMAL")
             print(f"Knights     : {result['num_knights']}")
             print(f"Solve time  : {result['solve_time']:.4f}s")
             print(f"Placement   : {result['placement']}")
-            coords = [self.board.square_coords(sq) for sq in result['placement']]
+            coords = [self.board.square_coords(sq)
+                      for sq in result['placement']]
             print(f"Coords      : {coords}")
 
             # Verify with board logic
@@ -178,8 +177,10 @@ def run_benchmark(sizes: list[int], verbose: bool = False):
         r = solver.solve(verbose=verbose)
         results[n] = r
 
-        knights_str = str(r['num_knights']) if r['num_knights'] is not None else "N/A"
-        print(f"{n:>4} | {knights_str:>8} | {r['solve_time']:>10.4f} | {r['status']:>12}")
+        knights_str = str(
+            r['num_knights']) if r['num_knights'] is not None else "N/A"
+        print(
+            f"{n:>4} | {knights_str:>8} | {r['solve_time']:>10.4f} | {r['status']:>12}")
 
     print(f"{'='*60}\n")
     return results

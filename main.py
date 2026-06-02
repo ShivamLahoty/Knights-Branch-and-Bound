@@ -1,12 +1,13 @@
-import argparse
-import sys
+
 import os
+import sys
 
 # Make sure src/ is on the path
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
-
-from board import Board
 from utils import print_header, print_result, print_comparison_table, make_result, Timer
+from board import Board
+import argparse
+
 
 
 def run_ilp(n: int, verbose: bool = False):
@@ -24,7 +25,7 @@ def run_ilp(n: int, verbose: bool = False):
 # Mode: BnB solve
 # ------------------------------------------------------------------
 
-def run_bnb(n: int, strategy: str, branch_var: str, verbose: bool = False):
+def run_bnb(n, strategy, branch_var, branch_order="zero_first", verbose=False):
     try:
         from bnb import BnBSolver
     except ImportError:
@@ -32,12 +33,14 @@ def run_bnb(n: int, strategy: str, branch_var: str, verbose: bool = False):
         print("        Run with --mode ilp for now.")
         return
 
-    print_header(f"Branch and Bound — {n}x{n} | strategy={strategy} | branch_var={branch_var}")
+    print_header(
+        f"Branch and Bound — {n}x{n} | strategy={strategy} | branch_var={branch_var}")
 
     solver = BnBSolver(
         n=n,
         strategy=strategy,
         branch_var=branch_var,
+        branch_order=branch_order,
         verbose=verbose,
     )
 
@@ -49,7 +52,6 @@ def run_bnb(n: int, strategy: str, branch_var: str, verbose: bool = False):
 
     board = Board(n)
     board.display(result.get('placement', []))
-
 
 
 def run_benchmark(sizes: list[int]):
@@ -104,7 +106,8 @@ def run_experiments():
     try:
         from experiments.run_experiments import main as exp_main
     except ImportError:
-        print("[ERROR] experiments/run_experiments.py not found yet — Shivam is building this!")
+        print(
+            "[ERROR] experiments/run_experiments.py not found yet — Shivam is building this!")
         return
 
     exp_main()
@@ -137,7 +140,8 @@ def parse_args():
 
     parser.add_argument(
         '--mode',
-        choices=['ilp', 'lp', 'bnb', 'benchmark', 'verify', 'experiment', 'display'],
+        choices=['ilp', 'lp', 'bnb', 'benchmark',
+                 'verify', 'experiment', 'display'],
         default='ilp',
         help=(
             "ilp        : solve with ILP (ground truth)\n"
@@ -160,13 +164,20 @@ def parse_args():
                         help='Node selection strategy for BnB (default: best_first)')
 
     parser.add_argument('--branch_var', type=str, default='most_constrained',
-                        choices=['most_constrained', 'least_constrained', 'first_fractional'],
+                        choices=['most_constrained', 'least_constrained',
+                                 'first_fractional', 'most_coverage'],
                         help='Variable selection rule for branching (default: most_constrained)')
+
+    parser.add_argument('--branch_order', type=str, default='zero_first',
+                        choices=['zero_first', 'one_first',
+                                 'lp_guided', 'three_way'],
+                        help='Branch value order (default: zero_first)')
 
     parser.add_argument('--verbose', action='store_true',
                         help='Print verbose solver output')
 
     return parser.parse_args()
+
 
 def main():
     args = parse_args()
@@ -197,7 +208,7 @@ def main():
                 print(f"x[{i}] = {val:.4f}")
 
     elif args.mode == 'bnb':
-        run_bnb(args.n, args.strategy, args.branch_var, args.verbose)
+        run_bnb(args.n, args.strategy, args.branch_var, args.branch_order, args.verbose)
 
     elif args.mode == 'benchmark':
         run_benchmark(args.sizes)
@@ -210,6 +221,7 @@ def main():
 
     elif args.mode == 'display':
         run_display(args.n)
+
 
 if __name__ == "__main__":
     main()

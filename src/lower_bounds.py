@@ -4,7 +4,6 @@ import math
 from board import Board
 
 
-
 def mis_lower_bound(board: Board) -> int:
 
     n_sq = board.num_squares
@@ -35,14 +34,12 @@ def mis_lower_bound(board: Board) -> int:
     return math.ceil(len(mis) / max_coverage)
 
 
-
-
 def node_lower_bound(
     board: Board,
     fixed_vars: dict[int, int],
 ) -> int:
 
-    n_sq   = board.num_squares
+    n_sq = board.num_squares
     placed = {sq for sq, val in fixed_vars.items() if val == 1}
 
     # Squares covered by already-placed knights
@@ -73,31 +70,31 @@ if __name__ == "__main__":
     print("=" * 60)
 
     # Known optima (ILP ground truth for this problem variant)
-    
-    
-    known = {
-    4: 6,
-    5: 7,
-    6: 8,
-    7: 10,
-    8: 14
-}
 
-    print(f"\n{'n':>4} | {'opt':>5} | {'mis_lb':>8} | {'node_lb':>9} | mis<=opt | node<=opt")
+    known = {
+        4: 6,
+        5: 7,
+        6: 8,
+        7: 10,
+        8: 14
+    }
+
+    print(
+        f"\n{'n':>4} | {'opt':>5} | {'mis_lb':>8} | {'node_lb':>9} | mis<=opt | node<=opt")
     print(f"{'-'*4}-+-{'-'*5}-+-{'-'*8}-+-{'-'*9}-+-{'-'*8}-+-{'-'*10}")
 
     all_ok = True
     for n, opt in known.items():
         b = Board(n)
-        mis  = mis_lower_bound(b)
+        mis = mis_lower_bound(b)
         node = node_lower_bound(b, fixed_vars={})
 
-        mis_ok  = mis  <= opt
+        mis_ok = mis <= opt
         node_ok = node <= opt
-        all_ok  = all_ok and mis_ok and node_ok
+        all_ok = all_ok and mis_ok and node_ok
 
         print(f"{n:>4} | {opt:>5} | {mis:>8} | {node:>9} | "
-              f"{'OK' if mis_ok  else 'FAIL':^8} | "
+              f"{'OK' if mis_ok else 'FAIL':^8} | "
               f"{'OK' if node_ok else 'FAIL':^10}")
 
     print()
@@ -118,6 +115,5 @@ if __name__ == "__main__":
     assert lb0 <= known[5], f"node_lb={lb0} exceeds opt={known[5]}"
 
     # Full cover: node_lb should equal exactly the number placed
-   
 
     print("\nAll smoke tests passed!")

@@ -1,55 +1,181 @@
-solver,n,status,num_knights,placement,solve_time,nodes_explored,upper_bound,lower_bound,timestamp,branch_var
-BnB_best_first,4,optimal,4,"[4, 3, 7, 10]",4.265171,433,,,2026-06-01T20:03:37.484643,most_constrained
-BnB_best_first,4,optimal,4,"[2, 0, 6, 10]",2.779301,442,,,2026-06-01T20:03:37.516638,first_fractional
-BnB_best_first,4,optimal,4,"[13, 15, 10, 1]",2.143248,791,,,2026-06-01T20:03:37.548367,least_constrained
-BnB_depth_first,4,optimal,4,"[4, 3, 0, 7]",1.219792,868,,,2026-06-01T20:03:37.568183,most_constrained
-BnB_depth_first,4,optimal,4,"[7, 10, 4, 14]",2.608164,364,,,2026-06-01T20:03:37.596809,first_fractional
-BnB_depth_first,4,optimal,4,"[1, 7, 14, 10]",3.603975,792,,,2026-06-01T20:03:37.632763,least_constrained
-BnB_breadth_first,4,optimal,4,"[8, 13, 14, 12]",1.170695,484,,,2026-06-01T20:03:37.644208,most_constrained
-BnB_breadth_first,4,optimal,4,"[4, 5, 9, 12]",0.595195,658,,,2026-06-01T20:03:37.684202,first_fractional
-BnB_breadth_first,4,optimal,4,"[3, 0, 15, 13]",2.441774,448,,,2026-06-01T20:03:37.727231,least_constrained
-BnB_best_first,5,optimal,5,"[11, 15, 20, 1, 2]",0.588904,120,,,2026-06-01T20:03:37.749336,most_constrained
-BnB_best_first,5,optimal,5,"[10, 23, 15, 5, 2]",0.719339,495,,,2026-06-01T20:03:37.761082,first_fractional
-BnB_best_first,5,optimal,5,"[24, 0, 14, 15, 20]",1.659737,27,,,2026-06-01T20:03:37.810849,least_constrained
-BnB_depth_first,5,optimal,5,"[12, 23, 0, 16, 7]",0.751816,746,,,2026-06-01T20:03:37.826823,most_constrained
-BnB_depth_first,5,optimal,5,"[22, 6, 15, 17, 0]",3.625513,278,,,2026-06-01T20:03:37.857729,first_fractional
-BnB_depth_first,5,optimal,5,"[4, 6, 22, 3, 2]",3.163768,948,,,2026-06-01T20:03:37.869254,least_constrained
-BnB_breadth_first,5,optimal,5,"[6, 5, 19, 24, 10]",4.917356,185,,,2026-06-01T20:03:37.892311,most_constrained
-BnB_breadth_first,5,optimal,5,"[24, 20, 18, 6, 22]",0.702496,631,,,2026-06-01T20:03:37.939995,first_fractional
-BnB_breadth_first,5,optimal,5,"[10, 11, 6, 17, 1]",3.958553,806,,,2026-06-01T20:03:37.969351,least_constrained
-BnB_best_first,6,optimal,6,"[25, 34, 31, 10, 23, 26]",4.688293,128,,,2026-06-01T20:03:37.996364,most_constrained
-BnB_best_first,6,optimal,6,"[25, 12, 3, 2, 11, 1]",3.243577,226,,,2026-06-01T20:03:38.026661,first_fractional
-BnB_best_first,6,optimal,6,"[29, 6, 20, 30, 2, 27]",3.712622,856,,,2026-06-01T20:03:38.038548,least_constrained
-BnB_depth_first,6,optimal,6,"[26, 28, 21, 19, 6, 25]",4.014362,321,,,2026-06-01T20:03:38.056744,most_constrained
-BnB_depth_first,6,optimal,6,"[8, 29, 16, 3, 10, 5]",0.724296,951,,,2026-06-01T20:03:38.094876,first_fractional
-BnB_depth_first,6,optimal,6,"[7, 14, 15, 26, 28, 8]",1.012418,494,,,2026-06-01T20:03:38.124114,least_constrained
-BnB_breadth_first,6,optimal,6,"[10, 16, 2, 27, 11, 23]",3.825077,770,,,2026-06-01T20:03:38.170374,most_constrained
-BnB_breadth_first,6,optimal,6,"[9, 18, 21, 3, 26, 10]",0.824919,790,,,2026-06-01T20:03:38.199647,first_fractional
-BnB_breadth_first,6,optimal,6,"[29, 12, 33, 10, 21, 8]",2.312537,756,,,2026-06-01T20:03:38.218380,least_constrained
-BnB_best_first,7,optimal,7,"[2, 15, 36, 38, 8, 39, 16]",3.439426,205,,,2026-06-01T20:03:38.238011,most_constrained
-BnB_best_first,7,optimal,7,"[21, 31, 45, 43, 22, 36, 2]",4.104882,919,,,2026-06-01T20:03:38.284036,first_fractional
-BnB_best_first,7,optimal,7,"[31, 42, 38, 25, 48, 1, 3]",1.115578,66,,,2026-06-01T20:03:38.309726,least_constrained
-BnB_depth_first,7,optimal,7,"[6, 3, 40, 32, 16, 47, 15]",0.113484,114,,,2026-06-01T20:03:38.349521,most_constrained
-BnB_depth_first,7,optimal,7,"[15, 38, 28, 30, 23, 11, 34]",2.029808,367,,,2026-06-01T20:03:38.378157,first_fractional
-BnB_depth_first,7,optimal,7,"[10, 11, 27, 7, 19, 12, 26]",3.913119,400,,,2026-06-01T20:03:38.394361,least_constrained
-BnB_breadth_first,7,optimal,7,"[41, 19, 43, 8, 17, 21, 3]",3.30305,136,,,2026-06-01T20:03:38.407318,most_constrained
-BnB_breadth_first,7,optimal,7,"[37, 43, 15, 33, 24, 45, 47]",3.143896,450,,,2026-06-01T20:03:38.429998,first_fractional
-BnB_breadth_first,7,optimal,7,"[48, 30, 35, 40, 1, 46, 44]",4.355826,423,,,2026-06-01T20:03:38.467547,least_constrained
-BnB_best_first,8,optimal,8,"[56, 25, 45, 42, 37, 28, 27, 47]",0.476524,293,,,2026-06-01T20:03:38.517097,most_constrained
-BnB_best_first,8,optimal,8,"[23, 43, 15, 3, 61, 5, 58, 34]",2.996183,768,,,2026-06-01T20:03:38.536678,first_fractional
-BnB_best_first,8,optimal,8,"[56, 33, 15, 9, 10, 53, 63, 1]",1.896406,163,,,2026-06-01T20:03:38.554906,least_constrained
-BnB_depth_first,8,optimal,8,"[13, 14, 18, 22, 33, 16, 61, 5]",4.08592,431,,,2026-06-01T20:03:38.571646,most_constrained
-BnB_depth_first,8,optimal,8,"[12, 16, 27, 29, 1, 60, 62, 32]",0.818086,264,,,2026-06-01T20:03:38.604937,first_fractional
-BnB_depth_first,8,optimal,8,"[20, 23, 19, 58, 13, 2, 14, 6]",3.732195,508,,,2026-06-01T20:03:38.619117,least_constrained
-BnB_breadth_first,8,optimal,8,"[63, 10, 2, 60, 61, 39, 62, 11]",3.978588,990,,,2026-06-01T20:03:38.643650,most_constrained
-BnB_breadth_first,8,optimal,8,"[47, 30, 14, 18, 25, 1, 34, 60]",2.548008,669,,,2026-06-01T20:03:38.672767,first_fractional
-BnB_breadth_first,8,optimal,8,"[46, 63, 1, 24, 4, 47, 33, 39]",0.538704,123,,,2026-06-01T20:03:38.720722,least_constrained
-BnB_best_first,9,optimal,9,"[58, 28, 20, 46, 22, 69, 77, 26, 54]",1.836322,95,,,2026-06-01T20:03:38.772204,most_constrained
-BnB_best_first,9,optimal,9,"[30, 27, 69, 37, 45, 18, 14, 62, 63]",4.258959,331,,,2026-06-01T20:03:38.821093,first_fractional
-BnB_best_first,9,optimal,9,"[14, 49, 10, 75, 15, 33, 67, 80, 77]",1.912266,710,,,2026-06-01T20:03:38.845902,least_constrained
-BnB_depth_first,9,optimal,9,"[50, 47, 72, 28, 49, 14, 43, 69, 22]",4.136485,870,,,2026-06-01T20:03:38.882027,most_constrained
-BnB_depth_first,9,optimal,9,"[11, 50, 62, 43, 2, 37, 42, 3, 4]",0.959017,653,,,2026-06-01T20:03:38.894066,first_fractional
-BnB_depth_first,9,optimal,9,"[56, 39, 59, 2, 38, 16, 49, 0, 46]",4.892786,361,,,2026-06-01T20:03:38.920000,least_constrained
-BnB_breadth_first,9,optimal,9,"[76, 49, 34, 73, 3, 77, 58, 20, 53]",1.207741,785,,,2026-06-01T20:03:38.951635,most_constrained
-BnB_breadth_first,9,optimal,9,"[22, 61, 79, 32, 11, 48, 56, 18, 51]",2.368184,258,,,2026-06-01T20:03:38.979026,first_fractional
-BnB_breadth_first,9,optimal,9,"[3, 80, 15, 17, 62, 5, 47, 4, 27]",3.07736,42,,,2026-06-01T20:03:39.005480,least_constrained
+solver,n,status,num_knights,placement,solve_time,nodes_explored,upper_bound,lower_bound,timestamp,nodes_pruned_bound,nodes_pruned_infeasible,nodes_integer,branch_order,solve_time_std,nodes_std
+best_first_most_constrained,4,optimal,6,"[5, 6, 13, 9, 3, 7]",0.053577,35,6,5.0,2026-06-02T12:45:32.237482,28,0,4,zero_first,0.0,0.0
+best_first_most_constrained,4,optimal,6,"[5, 6, 13, 9, 3, 7]",0.053313,35,6,5.0,2026-06-02T12:45:32.291472,28,0,4,lp_guided,0.0,0.0
+best_first_most_constrained,4,optimal,6,"[5, 6, 13, 9, 3, 7]",0.05291,35,6,5.0,2026-06-02T12:45:32.343892,28,0,4,three_way,0.0,0.0
+best_first_first_fractional,4,optimal,6,"[5, 6, 13, 9, 3, 7]",0.056414,35,6,5.0,2026-06-02T12:45:32.401374,28,0,4,zero_first,0.0,0.0
+best_first_first_fractional,4,optimal,6,"[5, 6, 13, 9, 3, 7]",0.065384,35,6,5.0,2026-06-02T12:45:32.467415,28,0,4,lp_guided,0.0,0.0
+best_first_first_fractional,4,optimal,6,"[5, 6, 13, 9, 3, 7]",0.06656,35,6,5.0,2026-06-02T12:45:32.534204,28,0,4,three_way,0.0,0.0
+best_first_least_constrained,4,optimal,6,"[5, 6, 13, 9, 3, 7]",0.05832,35,6,5.0,2026-06-02T12:45:32.592649,28,0,4,zero_first,0.0,0.0
+best_first_least_constrained,4,optimal,6,"[5, 6, 13, 9, 3, 7]",0.059582,35,6,5.0,2026-06-02T12:45:32.652922,28,0,4,lp_guided,0.0,0.0
+best_first_least_constrained,4,optimal,6,"[5, 6, 13, 9, 3, 7]",0.057518,35,6,5.0,2026-06-02T12:45:32.710875,28,0,4,three_way,0.0,0.0
+best_first_most_coverage,4,optimal,6,"[5, 6, 13, 9, 3, 7]",0.081347,63,6,5.0,2026-06-02T12:45:32.792388,40,0,12,zero_first,0.0,0.0
+best_first_most_coverage,4,optimal,6,"[5, 6, 13, 9, 3, 7]",0.080452,63,6,5.0,2026-06-02T12:45:32.873127,40,0,12,lp_guided,0.0,0.0
+best_first_most_coverage,4,optimal,6,"[5, 6, 13, 9, 3, 7]",0.078868,63,6,5.0,2026-06-02T12:45:32.951848,40,0,12,three_way,0.0,0.0
+depth_first_most_constrained,4,optimal,6,"[5, 6, 13, 9, 3, 7]",0.046136,35,6,5.0,2026-06-02T12:45:32.998984,28,0,4,zero_first,0.0,0.0
+depth_first_most_constrained,4,optimal,6,"[5, 6, 13, 9, 3, 7]",0.047768,35,6,5.0,2026-06-02T12:45:33.046761,28,0,4,lp_guided,0.0,0.0
+depth_first_most_constrained,4,optimal,6,"[5, 6, 13, 9, 3, 7]",0.046471,35,6,5.0,2026-06-02T12:45:33.093465,28,0,4,three_way,0.0,0.0
+depth_first_first_fractional,4,optimal,6,"[5, 6, 13, 9, 3, 7]",0.046038,35,6,5.0,2026-06-02T12:45:33.139884,28,0,4,zero_first,0.0,0.0
+depth_first_first_fractional,4,optimal,6,"[5, 6, 13, 9, 3, 7]",0.047397,35,6,5.0,2026-06-02T12:45:33.187384,28,0,4,lp_guided,0.0,0.0
+depth_first_first_fractional,4,optimal,6,"[5, 6, 13, 9, 3, 7]",0.047316,35,6,5.0,2026-06-02T12:45:33.235081,28,0,4,three_way,0.0,0.0
+depth_first_least_constrained,4,optimal,6,"[5, 6, 13, 9, 3, 7]",0.046216,35,6,5.0,2026-06-02T12:45:33.281863,28,0,4,zero_first,0.0,0.0
+depth_first_least_constrained,4,optimal,6,"[5, 6, 13, 9, 3, 7]",0.046278,35,6,5.0,2026-06-02T12:45:33.327551,28,0,4,lp_guided,0.0,0.0
+depth_first_least_constrained,4,optimal,6,"[5, 6, 13, 9, 3, 7]",0.04531,35,6,5.0,2026-06-02T12:45:33.373033,28,0,4,three_way,0.0,0.0
+depth_first_most_coverage,4,optimal,6,"[5, 6, 13, 9, 3, 7]",0.075799,63,6,5.0,2026-06-02T12:45:33.449470,40,0,12,zero_first,0.0,0.0
+depth_first_most_coverage,4,optimal,6,"[5, 6, 13, 9, 3, 7]",0.076447,63,6,5.0,2026-06-02T12:45:33.525723,40,0,12,lp_guided,0.0,0.0
+depth_first_most_coverage,4,optimal,6,"[5, 6, 13, 9, 3, 7]",0.077572,63,6,5.0,2026-06-02T12:45:33.604328,40,0,12,three_way,0.0,0.0
+breadth_first_most_constrained,4,optimal,6,"[5, 6, 13, 9, 3, 7]",0.04678,35,6,5.0,2026-06-02T12:45:33.651125,28,0,4,zero_first,0.0,0.0
+breadth_first_most_constrained,4,optimal,6,"[5, 6, 13, 9, 3, 7]",0.045925,35,6,5.0,2026-06-02T12:45:33.697266,28,0,4,lp_guided,0.0,0.0
+breadth_first_most_constrained,4,optimal,6,"[5, 6, 13, 9, 3, 7]",0.046738,35,6,5.0,2026-06-02T12:45:33.744217,28,0,4,three_way,0.0,0.0
+breadth_first_first_fractional,4,optimal,6,"[5, 6, 13, 9, 3, 7]",0.046558,35,6,5.0,2026-06-02T12:45:33.791140,28,0,4,zero_first,0.0,0.0
+breadth_first_first_fractional,4,optimal,6,"[5, 6, 13, 9, 3, 7]",0.046165,35,6,5.0,2026-06-02T12:45:33.837168,28,0,4,lp_guided,0.0,0.0
+breadth_first_first_fractional,4,optimal,6,"[5, 6, 13, 9, 3, 7]",0.047444,35,6,5.0,2026-06-02T12:45:33.885132,28,0,4,three_way,0.0,0.0
+breadth_first_least_constrained,4,optimal,6,"[5, 6, 13, 9, 3, 7]",0.049196,35,6,5.0,2026-06-02T12:45:33.934448,28,0,4,zero_first,0.0,0.0
+breadth_first_least_constrained,4,optimal,6,"[5, 6, 13, 9, 3, 7]",0.047674,35,6,5.0,2026-06-02T12:45:33.982695,28,0,4,lp_guided,0.0,0.0
+breadth_first_least_constrained,4,optimal,6,"[5, 6, 13, 9, 3, 7]",0.050502,35,6,5.0,2026-06-02T12:45:34.032915,28,0,4,three_way,0.0,0.0
+breadth_first_most_coverage,4,optimal,6,"[5, 6, 13, 9, 3, 7]",0.084389,63,6,5.0,2026-06-02T12:45:34.117803,40,0,12,zero_first,0.0,0.0
+breadth_first_most_coverage,4,optimal,6,"[5, 6, 13, 9, 3, 7]",0.080429,63,6,5.0,2026-06-02T12:45:34.198860,40,0,12,lp_guided,0.0,0.0
+breadth_first_most_coverage,4,optimal,6,"[5, 6, 13, 9, 3, 7]",0.081397,63,6,5.0,2026-06-02T12:45:34.280285,40,0,12,three_way,0.0,0.0
+best_first_most_constrained,5,optimal,7,"[12, 7, 17, 11, 6, 0, 5]",0.430301,209,7,5.5,2026-06-02T12:45:34.711144,148,0,31,zero_first,0.0,0.0
+best_first_most_constrained,5,optimal,7,"[12, 7, 17, 11, 6, 0, 5]",0.482014,209,7,5.5,2026-06-02T12:45:35.193461,148,0,31,lp_guided,0.0,0.0
+best_first_most_constrained,5,optimal,7,"[12, 7, 17, 11, 6, 0, 5]",0.492974,209,7,5.5,2026-06-02T12:45:35.686478,148,0,31,three_way,0.0,0.0
+best_first_first_fractional,5,optimal,7,"[12, 7, 17, 11, 6, 0, 5]",0.341375,197,7,5.5,2026-06-02T12:45:36.028228,126,0,36,zero_first,0.0,0.0
+best_first_first_fractional,5,optimal,7,"[12, 7, 17, 11, 6, 0, 5]",0.34686,197,7,5.5,2026-06-02T12:45:36.375281,126,0,36,lp_guided,0.0,0.0
+best_first_first_fractional,5,optimal,7,"[12, 7, 17, 11, 6, 0, 5]",0.361169,197,7,5.5,2026-06-02T12:45:36.736347,126,0,36,three_way,0.0,0.0
+best_first_least_constrained,5,optimal,7,"[12, 7, 17, 11, 6, 0, 5]",0.386739,233,7,5.5,2026-06-02T12:45:37.124154,108,0,63,zero_first,0.0,0.0
+best_first_least_constrained,5,optimal,7,"[12, 7, 17, 11, 6, 0, 5]",0.694855,233,7,5.5,2026-06-02T12:45:37.818368,108,0,63,lp_guided,0.0,0.0
+best_first_least_constrained,5,optimal,7,"[12, 7, 17, 11, 6, 0, 5]",0.440427,233,7,5.5,2026-06-02T12:45:38.260070,108,0,63,three_way,0.0,0.0
+best_first_most_coverage,5,optimal,7,"[12, 7, 17, 11, 6, 0, 5]",0.067866,39,7,5.5,2026-06-02T12:45:38.328209,16,0,12,zero_first,0.0,0.0
+best_first_most_coverage,5,optimal,7,"[12, 7, 17, 11, 6, 0, 5]",0.060013,39,7,5.5,2026-06-02T12:45:38.388734,16,0,12,lp_guided,0.0,0.0
+best_first_most_coverage,5,optimal,7,"[12, 7, 17, 11, 6, 0, 5]",0.057155,39,7,5.5,2026-06-02T12:45:38.445412,16,0,12,three_way,0.0,0.0
+depth_first_most_constrained,5,optimal,7,"[12, 7, 17, 11, 6, 0, 5]",0.337257,209,7,5.5,2026-06-02T12:45:38.783492,148,0,31,zero_first,0.0,0.0
+depth_first_most_constrained,5,optimal,7,"[12, 7, 17, 11, 6, 0, 5]",0.340776,209,7,5.5,2026-06-02T12:45:39.124386,148,0,31,lp_guided,0.0,0.0
+depth_first_most_constrained,5,optimal,7,"[12, 7, 17, 11, 6, 0, 5]",0.330801,209,7,5.5,2026-06-02T12:45:39.454890,148,0,31,three_way,0.0,0.0
+depth_first_first_fractional,5,optimal,7,"[12, 7, 17, 11, 6, 0, 5]",0.305287,197,7,5.5,2026-06-02T12:45:39.760939,126,0,36,zero_first,0.0,0.0
+depth_first_first_fractional,5,optimal,7,"[12, 7, 17, 11, 6, 0, 5]",0.306599,197,7,5.5,2026-06-02T12:45:40.068067,126,0,36,lp_guided,0.0,0.0
+depth_first_first_fractional,5,optimal,7,"[12, 7, 17, 11, 6, 0, 5]",0.314103,197,7,5.5,2026-06-02T12:45:40.382462,126,0,36,three_way,0.0,0.0
+depth_first_least_constrained,5,optimal,7,"[12, 7, 17, 11, 6, 0, 5]",0.40238,233,7,5.5,2026-06-02T12:45:40.784770,108,0,63,zero_first,0.0,0.0
+depth_first_least_constrained,5,optimal,7,"[12, 7, 17, 11, 6, 0, 5]",0.606332,233,7,5.5,2026-06-02T12:45:41.392009,108,0,63,lp_guided,0.0,0.0
+depth_first_least_constrained,5,optimal,7,"[12, 7, 17, 11, 6, 0, 5]",0.428107,233,7,5.5,2026-06-02T12:45:41.820701,108,0,63,three_way,0.0,0.0
+depth_first_most_coverage,5,optimal,7,"[12, 7, 17, 11, 6, 0, 5]",0.065172,39,7,5.5,2026-06-02T12:45:41.885990,16,0,12,zero_first,0.0,0.0
+depth_first_most_coverage,5,optimal,7,"[12, 7, 17, 11, 6, 0, 5]",0.065016,39,7,5.5,2026-06-02T12:45:41.950754,16,0,12,lp_guided,0.0,0.0
+depth_first_most_coverage,5,optimal,7,"[12, 7, 17, 11, 6, 0, 5]",0.076507,39,7,5.5,2026-06-02T12:45:42.027687,16,0,12,three_way,0.0,0.0
+breadth_first_most_constrained,5,optimal,7,"[12, 7, 17, 11, 6, 0, 5]",0.369933,209,7,5.5,2026-06-02T12:45:42.398253,148,0,31,zero_first,0.0,0.0
+breadth_first_most_constrained,5,optimal,7,"[12, 7, 17, 11, 6, 0, 5]",0.378747,209,7,5.5,2026-06-02T12:45:42.777498,148,0,31,lp_guided,0.0,0.0
+breadth_first_most_constrained,5,optimal,7,"[12, 7, 17, 11, 6, 0, 5]",0.477663,209,7,5.5,2026-06-02T12:45:43.255086,148,0,31,three_way,0.0,0.0
+breadth_first_first_fractional,5,optimal,7,"[12, 7, 17, 11, 6, 0, 5]",0.379358,197,7,5.5,2026-06-02T12:45:43.634466,126,0,36,zero_first,0.0,0.0
+breadth_first_first_fractional,5,optimal,7,"[12, 7, 17, 11, 6, 0, 5]",0.415436,197,7,5.5,2026-06-02T12:45:44.050853,126,0,36,lp_guided,0.0,0.0
+breadth_first_first_fractional,5,optimal,7,"[12, 7, 17, 11, 6, 0, 5]",0.368898,197,7,5.5,2026-06-02T12:45:44.419594,126,0,36,three_way,0.0,0.0
+breadth_first_least_constrained,5,optimal,7,"[12, 7, 17, 11, 6, 0, 5]",0.399803,233,7,5.5,2026-06-02T12:45:44.819396,108,0,63,zero_first,0.0,0.0
+breadth_first_least_constrained,5,optimal,7,"[12, 7, 17, 11, 6, 0, 5]",0.396281,233,7,5.5,2026-06-02T12:45:45.216594,108,0,63,lp_guided,0.0,0.0
+breadth_first_least_constrained,5,optimal,7,"[12, 7, 17, 11, 6, 0, 5]",0.61231,233,7,5.5,2026-06-02T12:45:45.828930,108,0,63,three_way,0.0,0.0
+breadth_first_most_coverage,5,optimal,7,"[12, 7, 17, 11, 6, 0, 5]",0.108341,39,7,5.5,2026-06-02T12:45:45.937484,16,0,12,zero_first,0.0,0.0
+breadth_first_most_coverage,5,optimal,7,"[12, 7, 17, 11, 6, 0, 5]",0.094451,39,7,5.5,2026-06-02T12:45:46.032566,16,0,12,lp_guided,0.0,0.0
+breadth_first_most_coverage,5,optimal,7,"[12, 7, 17, 11, 6, 0, 5]",0.071616,39,7,5.5,2026-06-02T12:45:46.105020,16,0,12,three_way,0.0,0.0
+best_first_most_constrained,6,optimal,8,"[15, 21, 20, 14, 9, 26, 13, 27]",1.046883,427,8,6.0,2026-06-02T12:45:47.151875,282,0,73,zero_first,0.0,0.0
+best_first_most_constrained,6,optimal,8,"[15, 21, 20, 14, 9, 26, 13, 27]",1.128909,427,8,6.0,2026-06-02T12:45:48.281460,282,0,73,lp_guided,0.0,0.0
+best_first_most_constrained,6,optimal,8,"[15, 21, 20, 14, 9, 26, 13, 27]",1.176995,427,8,6.0,2026-06-02T12:45:49.458902,282,0,73,three_way,0.0,0.0
+best_first_first_fractional,6,optimal,8,"[15, 21, 20, 14, 9, 26, 13, 27]",1.072544,427,8,6.0,2026-06-02T12:45:50.531134,282,0,73,zero_first,0.0,0.0
+best_first_first_fractional,6,optimal,8,"[15, 21, 20, 14, 9, 26, 13, 27]",1.096456,427,8,6.0,2026-06-02T12:45:51.628233,282,0,73,lp_guided,0.0,0.0
+best_first_first_fractional,6,optimal,8,"[15, 21, 20, 14, 9, 26, 13, 27]",1.070741,427,8,6.0,2026-06-02T12:45:52.699630,282,0,73,three_way,0.0,0.0
+best_first_least_constrained,6,optimal,8,"[15, 21, 20, 14, 9, 26, 13, 27]",1.156948,427,8,6.0,2026-06-02T12:45:53.857092,282,0,73,zero_first,0.0,0.0
+best_first_least_constrained,6,optimal,8,"[15, 21, 20, 14, 9, 26, 13, 27]",1.100703,427,8,6.0,2026-06-02T12:45:54.957573,282,0,73,lp_guided,0.0,0.0
+best_first_least_constrained,6,optimal,8,"[15, 21, 20, 14, 9, 26, 13, 27]",1.076919,427,8,6.0,2026-06-02T12:45:56.034740,282,0,73,three_way,0.0,0.0
+best_first_most_coverage,6,optimal,8,"[15, 21, 20, 14, 9, 26, 13, 27]",1.132302,461,8,6.0,2026-06-02T12:45:57.167464,242,0,110,zero_first,0.0,0.0
+best_first_most_coverage,6,optimal,8,"[15, 21, 20, 14, 9, 26, 13, 27]",1.087824,461,8,6.0,2026-06-02T12:45:58.255815,242,0,110,lp_guided,0.0,0.0
+best_first_most_coverage,6,optimal,8,"[15, 21, 20, 14, 9, 26, 13, 27]",1.180769,461,8,6.0,2026-06-02T12:45:59.437517,242,0,110,three_way,0.0,0.0
+depth_first_most_constrained,6,optimal,8,"[15, 21, 20, 14, 9, 26, 13, 27]",1.080023,427,8,6.0,2026-06-02T12:46:00.518284,282,0,73,zero_first,0.0,0.0
+depth_first_most_constrained,6,optimal,8,"[15, 21, 20, 14, 9, 26, 13, 27]",1.082273,427,8,6.0,2026-06-02T12:46:01.600679,282,0,73,lp_guided,0.0,0.0
+depth_first_most_constrained,6,optimal,8,"[15, 21, 20, 14, 9, 26, 13, 27]",1.168186,427,8,6.0,2026-06-02T12:46:02.769887,282,0,73,three_way,0.0,0.0
+depth_first_first_fractional,6,optimal,8,"[15, 21, 20, 14, 9, 26, 13, 27]",1.316715,427,8,6.0,2026-06-02T12:46:04.090903,282,0,73,zero_first,0.0,0.0
+depth_first_first_fractional,6,optimal,8,"[15, 21, 20, 14, 9, 26, 13, 27]",1.20925,427,8,6.0,2026-06-02T12:46:05.299677,282,0,73,lp_guided,0.0,0.0
+depth_first_first_fractional,6,optimal,8,"[15, 21, 20, 14, 9, 26, 13, 27]",1.18764,427,8,6.0,2026-06-02T12:46:06.488145,282,0,73,three_way,0.0,0.0
+depth_first_least_constrained,6,optimal,8,"[15, 21, 20, 14, 9, 26, 13, 27]",1.292787,427,8,6.0,2026-06-02T12:46:07.781872,282,0,73,zero_first,0.0,0.0
+depth_first_least_constrained,6,optimal,8,"[15, 21, 20, 14, 9, 26, 13, 27]",1.167079,427,8,6.0,2026-06-02T12:46:08.949485,282,0,73,lp_guided,0.0,0.0
+depth_first_least_constrained,6,optimal,8,"[15, 21, 20, 14, 9, 26, 13, 27]",1.11718,427,8,6.0,2026-06-02T12:46:10.066441,282,0,73,three_way,0.0,0.0
+depth_first_most_coverage,6,optimal,8,"[15, 21, 20, 14, 9, 26, 13, 27]",1.30983,461,8,6.0,2026-06-02T12:46:11.377196,242,0,110,zero_first,0.0,0.0
+depth_first_most_coverage,6,optimal,8,"[15, 21, 20, 14, 9, 26, 13, 27]",1.396599,461,8,6.0,2026-06-02T12:46:12.773972,242,0,110,lp_guided,0.0,0.0
+depth_first_most_coverage,6,optimal,8,"[15, 21, 20, 14, 9, 26, 13, 27]",1.324658,461,8,6.0,2026-06-02T12:46:14.099134,242,0,110,three_way,0.0,0.0
+breadth_first_most_constrained,6,optimal,8,"[15, 21, 20, 14, 9, 26, 13, 27]",1.445771,427,8,6.0,2026-06-02T12:46:15.546289,282,0,73,zero_first,0.0,0.0
+breadth_first_most_constrained,6,optimal,8,"[15, 21, 20, 14, 9, 26, 13, 27]",1.187611,427,8,6.0,2026-06-02T12:46:16.733389,282,0,73,lp_guided,0.0,0.0
+breadth_first_most_constrained,6,optimal,8,"[15, 21, 20, 14, 9, 26, 13, 27]",1.301955,427,8,6.0,2026-06-02T12:46:18.036422,282,0,73,three_way,0.0,0.0
+breadth_first_first_fractional,6,optimal,8,"[15, 21, 20, 14, 9, 26, 13, 27]",1.184152,427,8,6.0,2026-06-02T12:46:19.220472,282,0,73,zero_first,0.0,0.0
+breadth_first_first_fractional,6,optimal,8,"[15, 21, 20, 14, 9, 26, 13, 27]",1.174534,427,8,6.0,2026-06-02T12:46:20.395705,282,0,73,lp_guided,0.0,0.0
+breadth_first_first_fractional,6,optimal,8,"[15, 21, 20, 14, 9, 26, 13, 27]",1.262276,427,8,6.0,2026-06-02T12:46:21.659104,282,0,73,three_way,0.0,0.0
+breadth_first_least_constrained,6,optimal,8,"[15, 21, 20, 14, 9, 26, 13, 27]",1.220091,427,8,6.0,2026-06-02T12:46:22.879543,282,0,73,zero_first,0.0,0.0
+breadth_first_least_constrained,6,optimal,8,"[15, 21, 20, 14, 9, 26, 13, 27]",1.306171,427,8,6.0,2026-06-02T12:46:24.185587,282,0,73,lp_guided,0.0,0.0
+breadth_first_least_constrained,6,optimal,8,"[15, 21, 20, 14, 9, 26, 13, 27]",1.528282,427,8,6.0,2026-06-02T12:46:25.714870,282,0,73,three_way,0.0,0.0
+breadth_first_most_coverage,6,optimal,8,"[15, 21, 20, 14, 9, 26, 13, 27]",0.969738,461,8,6.0,2026-06-02T12:46:26.684292,242,0,110,zero_first,0.0,0.0
+breadth_first_most_coverage,6,optimal,8,"[15, 21, 20, 14, 9, 26, 13, 27]",0.930128,461,8,6.0,2026-06-02T12:46:27.615464,242,0,110,lp_guided,0.0,0.0
+breadth_first_most_coverage,6,optimal,8,"[15, 21, 20, 14, 9, 26, 13, 27]",0.898332,461,8,6.0,2026-06-02T12:46:28.513707,242,0,110,three_way,0.0,0.0
+best_first_most_constrained,7,optimal,10,"[25, 18, 30, 37, 23, 16, 32, 11, 9, 39]",0.003591,1,10,10.0,2026-06-02T12:46:28.517706,1,0,0,zero_first,0.0,0.0
+best_first_most_constrained,7,optimal,10,"[25, 18, 30, 37, 23, 16, 32, 11, 9, 39]",0.003463,1,10,10.0,2026-06-02T12:46:28.521704,1,0,0,lp_guided,0.0,0.0
+best_first_most_constrained,7,optimal,10,"[25, 18, 30, 37, 23, 16, 32, 11, 9, 39]",0.004588,1,10,10.0,2026-06-02T12:46:28.526707,1,0,0,three_way,0.0,0.0
+best_first_first_fractional,7,optimal,10,"[25, 18, 30, 37, 23, 16, 32, 11, 9, 39]",0.004854,1,10,10.0,2026-06-02T12:46:28.531407,1,0,0,zero_first,0.0,0.0
+best_first_first_fractional,7,optimal,10,"[25, 18, 30, 37, 23, 16, 32, 11, 9, 39]",0.004199,1,10,10.0,2026-06-02T12:46:28.536816,1,0,0,lp_guided,0.0,0.0
+best_first_first_fractional,7,optimal,10,"[25, 18, 30, 37, 23, 16, 32, 11, 9, 39]",0.004511,1,10,10.0,2026-06-02T12:46:28.541527,1,0,0,three_way,0.0,0.0
+best_first_least_constrained,7,optimal,10,"[25, 18, 30, 37, 23, 16, 32, 11, 9, 39]",0.005253,1,10,10.0,2026-06-02T12:46:28.547892,1,0,0,zero_first,0.0,0.0
+best_first_least_constrained,7,optimal,10,"[25, 18, 30, 37, 23, 16, 32, 11, 9, 39]",0.005018,1,10,10.0,2026-06-02T12:46:28.552196,1,0,0,lp_guided,0.0,0.0
+best_first_least_constrained,7,optimal,10,"[25, 18, 30, 37, 23, 16, 32, 11, 9, 39]",0.004254,1,10,10.0,2026-06-02T12:46:28.558015,1,0,0,three_way,0.0,0.0
+best_first_most_coverage,7,optimal,10,"[25, 18, 30, 37, 23, 16, 32, 11, 9, 39]",0.00472,1,10,10.0,2026-06-02T12:46:28.562200,1,0,0,zero_first,0.0,0.0
+best_first_most_coverage,7,optimal,10,"[25, 18, 30, 37, 23, 16, 32, 11, 9, 39]",0.004282,1,10,10.0,2026-06-02T12:46:28.567660,1,0,0,lp_guided,0.0,0.0
+best_first_most_coverage,7,optimal,10,"[25, 18, 30, 37, 23, 16, 32, 11, 9, 39]",0.004385,1,10,10.0,2026-06-02T12:46:28.572224,1,0,0,three_way,0.0,0.0
+depth_first_most_constrained,7,optimal,10,"[25, 18, 30, 37, 23, 16, 32, 11, 9, 39]",0.003756,1,10,10.0,2026-06-02T12:46:28.576504,1,0,0,zero_first,0.0,0.0
+depth_first_most_constrained,7,optimal,10,"[25, 18, 30, 37, 23, 16, 32, 11, 9, 39]",0.004893,1,10,10.0,2026-06-02T12:46:28.582030,1,0,0,lp_guided,0.0,0.0
+depth_first_most_constrained,7,optimal,10,"[25, 18, 30, 37, 23, 16, 32, 11, 9, 39]",0.004209,1,10,10.0,2026-06-02T12:46:28.587027,1,0,0,three_way,0.0,0.0
+depth_first_first_fractional,7,optimal,10,"[25, 18, 30, 37, 23, 16, 32, 11, 9, 39]",0.005434,1,10,10.0,2026-06-02T12:46:28.591892,1,0,0,zero_first,0.0,0.0
+depth_first_first_fractional,7,optimal,10,"[25, 18, 30, 37, 23, 16, 32, 11, 9, 39]",0.007096,1,10,10.0,2026-06-02T12:46:28.600355,1,0,0,lp_guided,0.0,0.0
+depth_first_first_fractional,7,optimal,10,"[25, 18, 30, 37, 23, 16, 32, 11, 9, 39]",0.005804,1,10,10.0,2026-06-02T12:46:28.606783,1,0,0,three_way,0.0,0.0
+depth_first_least_constrained,7,optimal,10,"[25, 18, 30, 37, 23, 16, 32, 11, 9, 39]",0.005417,1,10,10.0,2026-06-02T12:46:28.612613,1,0,0,zero_first,0.0,0.0
+depth_first_least_constrained,7,optimal,10,"[25, 18, 30, 37, 23, 16, 32, 11, 9, 39]",0.007787,1,10,10.0,2026-06-02T12:46:28.621119,1,0,0,lp_guided,0.0,0.0
+depth_first_least_constrained,7,optimal,10,"[25, 18, 30, 37, 23, 16, 32, 11, 9, 39]",0.004239,1,10,10.0,2026-06-02T12:46:28.626141,1,0,0,three_way,0.0,0.0
+depth_first_most_coverage,7,optimal,10,"[25, 18, 30, 37, 23, 16, 32, 11, 9, 39]",0.00427,1,10,10.0,2026-06-02T12:46:28.630664,1,0,0,zero_first,0.0,0.0
+depth_first_most_coverage,7,optimal,10,"[25, 18, 30, 37, 23, 16, 32, 11, 9, 39]",0.00498,1,10,10.0,2026-06-02T12:46:28.635661,1,0,0,lp_guided,0.0,0.0
+depth_first_most_coverage,7,optimal,10,"[25, 18, 30, 37, 23, 16, 32, 11, 9, 39]",0.004053,1,10,10.0,2026-06-02T12:46:28.641459,1,0,0,three_way,0.0,0.0
+breadth_first_most_constrained,7,optimal,10,"[25, 18, 30, 37, 23, 16, 32, 11, 9, 39]",0.005876,1,10,10.0,2026-06-02T12:46:28.647541,1,0,0,zero_first,0.0,0.0
+breadth_first_most_constrained,7,optimal,10,"[25, 18, 30, 37, 23, 16, 32, 11, 9, 39]",0.004556,1,10,10.0,2026-06-02T12:46:28.652906,1,0,0,lp_guided,0.0,0.0
+breadth_first_most_constrained,7,optimal,10,"[25, 18, 30, 37, 23, 16, 32, 11, 9, 39]",0.005786,1,10,10.0,2026-06-02T12:46:28.658201,1,0,0,three_way,0.0,0.0
+breadth_first_first_fractional,7,optimal,10,"[25, 18, 30, 37, 23, 16, 32, 11, 9, 39]",0.005781,1,10,10.0,2026-06-02T12:46:28.665057,1,0,0,zero_first,0.0,0.0
+breadth_first_first_fractional,7,optimal,10,"[25, 18, 30, 37, 23, 16, 32, 11, 9, 39]",0.005235,1,10,10.0,2026-06-02T12:46:28.671735,1,0,0,lp_guided,0.0,0.0
+breadth_first_first_fractional,7,optimal,10,"[25, 18, 30, 37, 23, 16, 32, 11, 9, 39]",0.005742,1,10,10.0,2026-06-02T12:46:28.678295,1,0,0,three_way,0.0,0.0
+breadth_first_least_constrained,7,optimal,10,"[25, 18, 30, 37, 23, 16, 32, 11, 9, 39]",0.007624,1,10,10.0,2026-06-02T12:46:28.685820,1,0,0,zero_first,0.0,0.0
+breadth_first_least_constrained,7,optimal,10,"[25, 18, 30, 37, 23, 16, 32, 11, 9, 39]",0.004904,1,10,10.0,2026-06-02T12:46:28.692224,1,0,0,lp_guided,0.0,0.0
+breadth_first_least_constrained,7,optimal,10,"[25, 18, 30, 37, 23, 16, 32, 11, 9, 39]",0.004676,1,10,10.0,2026-06-02T12:46:28.696225,1,0,0,three_way,0.0,0.0
+breadth_first_most_coverage,7,optimal,10,"[25, 18, 30, 37, 23, 16, 32, 11, 9, 39]",0.003952,1,10,10.0,2026-06-02T12:46:28.701467,1,0,0,zero_first,0.0,0.0
+breadth_first_most_coverage,7,optimal,10,"[25, 18, 30, 37, 23, 16, 32, 11, 9, 39]",0.004392,1,10,10.0,2026-06-02T12:46:28.706248,1,0,0,lp_guided,0.0,0.0
+breadth_first_most_coverage,7,optimal,10,"[25, 18, 30, 37, 23, 16, 32, 11, 9, 39]",0.006913,1,10,10.0,2026-06-02T12:46:28.713249,1,0,0,three_way,0.0,0.0
+best_first_most_constrained,8,optimal,14,"[37, 34, 20, 19, 51, 45, 18, 33, 21, 36, 53, 41, 17, 13]",0.007476,1,14,14.0,2026-06-02T12:46:28.721788,1,0,0,zero_first,0.0,0.0
+best_first_most_constrained,8,optimal,14,"[37, 34, 20, 19, 51, 45, 18, 33, 21, 36, 53, 41, 17, 13]",0.007129,1,14,14.0,2026-06-02T12:46:28.728819,1,0,0,lp_guided,0.0,0.0
+best_first_most_constrained,8,optimal,14,"[37, 34, 20, 19, 51, 45, 18, 33, 21, 36, 53, 41, 17, 13]",0.008129,1,14,14.0,2026-06-02T12:46:28.737378,1,0,0,three_way,0.0,0.0
+best_first_first_fractional,8,optimal,14,"[37, 34, 20, 19, 51, 45, 18, 33, 21, 36, 53, 41, 17, 13]",0.006304,1,14,14.0,2026-06-02T12:46:28.745244,1,0,0,zero_first,0.0,0.0
+best_first_first_fractional,8,optimal,14,"[37, 34, 20, 19, 51, 45, 18, 33, 21, 36, 53, 41, 17, 13]",0.00672,1,14,14.0,2026-06-02T12:46:28.751469,1,0,0,lp_guided,0.0,0.0
+best_first_first_fractional,8,optimal,14,"[37, 34, 20, 19, 51, 45, 18, 33, 21, 36, 53, 41, 17, 13]",0.006357,1,14,14.0,2026-06-02T12:46:28.759565,1,0,0,three_way,0.0,0.0
+best_first_least_constrained,8,optimal,14,"[37, 34, 20, 19, 51, 45, 18, 33, 21, 36, 53, 41, 17, 13]",0.006232,1,14,14.0,2026-06-02T12:46:28.765958,1,0,0,zero_first,0.0,0.0
+best_first_least_constrained,8,optimal,14,"[37, 34, 20, 19, 51, 45, 18, 33, 21, 36, 53, 41, 17, 13]",0.006742,1,14,14.0,2026-06-02T12:46:28.773362,1,0,0,lp_guided,0.0,0.0
+best_first_least_constrained,8,optimal,14,"[37, 34, 20, 19, 51, 45, 18, 33, 21, 36, 53, 41, 17, 13]",0.006856,1,14,14.0,2026-06-02T12:46:28.781120,1,0,0,three_way,0.0,0.0
+best_first_most_coverage,8,optimal,14,"[37, 34, 20, 19, 51, 45, 18, 33, 21, 36, 53, 41, 17, 13]",0.006881,1,14,14.0,2026-06-02T12:46:28.789364,1,0,0,zero_first,0.0,0.0
+best_first_most_coverage,8,optimal,14,"[37, 34, 20, 19, 51, 45, 18, 33, 21, 36, 53, 41, 17, 13]",0.006295,1,14,14.0,2026-06-02T12:46:28.795223,1,0,0,lp_guided,0.0,0.0
+best_first_most_coverage,8,optimal,14,"[37, 34, 20, 19, 51, 45, 18, 33, 21, 36, 53, 41, 17, 13]",0.006478,1,14,14.0,2026-06-02T12:46:28.802215,1,0,0,three_way,0.0,0.0
+depth_first_most_constrained,8,optimal,14,"[37, 34, 20, 19, 51, 45, 18, 33, 21, 36, 53, 41, 17, 13]",0.006456,1,14,14.0,2026-06-02T12:46:28.809653,1,0,0,zero_first,0.0,0.0
+depth_first_most_constrained,8,optimal,14,"[37, 34, 20, 19, 51, 45, 18, 33, 21, 36, 53, 41, 17, 13]",0.006748,1,14,14.0,2026-06-02T12:46:28.816048,1,0,0,lp_guided,0.0,0.0
+depth_first_most_constrained,8,optimal,14,"[37, 34, 20, 19, 51, 45, 18, 33, 21, 36, 53, 41, 17, 13]",0.006636,1,14,14.0,2026-06-02T12:46:28.824041,1,0,0,three_way,0.0,0.0
+depth_first_first_fractional,8,optimal,14,"[37, 34, 20, 19, 51, 45, 18, 33, 21, 36, 53, 41, 17, 13]",0.00636,1,14,14.0,2026-06-02T12:46:28.830202,1,0,0,zero_first,0.0,0.0
+depth_first_first_fractional,8,optimal,14,"[37, 34, 20, 19, 51, 45, 18, 33, 21, 36, 53, 41, 17, 13]",0.006357,1,14,14.0,2026-06-02T12:46:28.837040,1,0,0,lp_guided,0.0,0.0
+depth_first_first_fractional,8,optimal,14,"[37, 34, 20, 19, 51, 45, 18, 33, 21, 36, 53, 41, 17, 13]",0.006868,1,14,14.0,2026-06-02T12:46:28.845444,1,0,0,three_way,0.0,0.0
+depth_first_least_constrained,8,optimal,14,"[37, 34, 20, 19, 51, 45, 18, 33, 21, 36, 53, 41, 17, 13]",0.006559,1,14,14.0,2026-06-02T12:46:28.851485,1,0,0,zero_first,0.0,0.0
+depth_first_least_constrained,8,optimal,14,"[37, 34, 20, 19, 51, 45, 18, 33, 21, 36, 53, 41, 17, 13]",0.005781,1,14,14.0,2026-06-02T12:46:28.858614,1,0,0,lp_guided,0.0,0.0
+depth_first_least_constrained,8,optimal,14,"[37, 34, 20, 19, 51, 45, 18, 33, 21, 36, 53, 41, 17, 13]",0.00651,1,14,14.0,2026-06-02T12:46:28.865321,1,0,0,three_way,0.0,0.0
+depth_first_most_coverage,8,optimal,14,"[37, 34, 20, 19, 51, 45, 18, 33, 21, 36, 53, 41, 17, 13]",0.005997,1,14,14.0,2026-06-02T12:46:28.872193,1,0,0,zero_first,0.0,0.0
+depth_first_most_coverage,8,optimal,14,"[37, 34, 20, 19, 51, 45, 18, 33, 21, 36, 53, 41, 17, 13]",0.006228,1,14,14.0,2026-06-02T12:46:28.878393,1,0,0,lp_guided,0.0,0.0
+depth_first_most_coverage,8,optimal,14,"[37, 34, 20, 19, 51, 45, 18, 33, 21, 36, 53, 41, 17, 13]",0.007015,1,14,14.0,2026-06-02T12:46:28.886369,1,0,0,three_way,0.0,0.0
+breadth_first_most_constrained,8,optimal,14,"[37, 34, 20, 19, 51, 45, 18, 33, 21, 36, 53, 41, 17, 13]",0.006303,1,14,14.0,2026-06-02T12:46:28.892731,1,0,0,zero_first,0.0,0.0
+breadth_first_most_constrained,8,optimal,14,"[37, 34, 20, 19, 51, 45, 18, 33, 21, 36, 53, 41, 17, 13]",0.006451,1,14,14.0,2026-06-02T12:46:28.900237,1,0,0,lp_guided,0.0,0.0
+breadth_first_most_constrained,8,optimal,14,"[37, 34, 20, 19, 51, 45, 18, 33, 21, 36, 53, 41, 17, 13]",0.007023,1,14,14.0,2026-06-02T12:46:28.907265,1,0,0,three_way,0.0,0.0
+breadth_first_first_fractional,8,optimal,14,"[37, 34, 20, 19, 51, 45, 18, 33, 21, 36, 53, 41, 17, 13]",0.007938,1,14,14.0,2026-06-02T12:46:28.915713,1,0,0,zero_first,0.0,0.0
+breadth_first_first_fractional,8,optimal,14,"[37, 34, 20, 19, 51, 45, 18, 33, 21, 36, 53, 41, 17, 13]",0.006219,1,14,14.0,2026-06-02T12:46:28.922254,1,0,0,lp_guided,0.0,0.0
+breadth_first_first_fractional,8,optimal,14,"[37, 34, 20, 19, 51, 45, 18, 33, 21, 36, 53, 41, 17, 13]",0.006221,1,14,14.0,2026-06-02T12:46:28.928728,1,0,0,three_way,0.0,0.0
+breadth_first_least_constrained,8,optimal,14,"[37, 34, 20, 19, 51, 45, 18, 33, 21, 36, 53, 41, 17, 13]",0.006654,1,14,14.0,2026-06-02T12:46:28.936372,1,0,0,zero_first,0.0,0.0
+breadth_first_least_constrained,8,optimal,14,"[37, 34, 20, 19, 51, 45, 18, 33, 21, 36, 53, 41, 17, 13]",0.006996,1,14,14.0,2026-06-02T12:46:28.943935,1,0,0,lp_guided,0.0,0.0
+breadth_first_least_constrained,8,optimal,14,"[37, 34, 20, 19, 51, 45, 18, 33, 21, 36, 53, 41, 17, 13]",0.006615,1,14,14.0,2026-06-02T12:46:28.951462,1,0,0,three_way,0.0,0.0
+breadth_first_most_coverage,8,optimal,14,"[37, 34, 20, 19, 51, 45, 18, 33, 21, 36, 53, 41, 17, 13]",0.005932,1,14,14.0,2026-06-02T12:46:28.957799,1,0,0,zero_first,0.0,0.0
+breadth_first_most_coverage,8,optimal,14,"[37, 34, 20, 19, 51, 45, 18, 33, 21, 36, 53, 41, 17, 13]",0.006974,1,14,14.0,2026-06-02T12:46:28.965362,1,0,0,lp_guided,0.0,0.0
+breadth_first_most_coverage,8,optimal,14,"[37, 34, 20, 19, 51, 45, 18, 33, 21, 36, 53, 41, 17, 13]",0.006027,1,14,14.0,2026-06-02T12:46:28.972101,1,0,0,three_way,0.0,0.0
