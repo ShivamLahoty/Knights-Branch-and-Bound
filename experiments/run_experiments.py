@@ -74,9 +74,7 @@ def visualize_results(csv_path):
         'results'
     )
 
-    # ==========================================================
-    # CREATE SINGLE DASHBOARD
-    # ==========================================================
+
 
     fig, axes = plt.subplots(
         3,
@@ -90,10 +88,7 @@ def visualize_results(csv_path):
         fontweight='bold'
     )
 
-    # ==========================================================
-    # GRAPH 1
-    # Strategy Time Comparison
-    # ==========================================================
+
 
     for solver in strategy_df['solver'].unique():
 
@@ -128,10 +123,7 @@ def visualize_results(csv_path):
 
     axes[0, 0].legend(fontsize=8)
 
-    # ==========================================================
-    # GRAPH 2
-    # Strategy Nodes Explored
-    # ==========================================================
+
 
     for solver in strategy_df['solver'].unique():
 
@@ -166,10 +158,7 @@ def visualize_results(csv_path):
 
     axes[0, 1].legend(fontsize=8)
 
-    # ==========================================================
-    # GRAPH 3
-    # Branch Variable Solve Time
-    # ==========================================================
+
 
     for solver in branch_df['solver'].unique():
 
@@ -204,10 +193,6 @@ def visualize_results(csv_path):
 
     axes[1, 0].legend(fontsize=8)
 
-    # ==========================================================
-    # GRAPH 4
-    # Branch Variable Nodes
-    # ==========================================================
 
     for solver in branch_df['solver'].unique():
 
@@ -242,10 +227,6 @@ def visualize_results(csv_path):
 
     axes[1, 1].legend(fontsize=8)
 
-    # ==========================================================
-    # GRAPH 5
-    # Runtime vs Nodes
-    # ==========================================================
 
     for solver in df['solver'].unique():
 
@@ -275,10 +256,6 @@ def visualize_results(csv_path):
 
     axes[2, 0].legend(fontsize=7)
 
-    # ==========================================================
-    # GRAPH 6
-    # LP Relaxation Quality
-    # ==========================================================
 
     lower_bounds = df.groupby('n')[
         'lower_bound'
@@ -319,9 +296,7 @@ def visualize_results(csv_path):
 
     axes[2, 1].legend(fontsize=8)
 
-    # ==========================================================
-    # FINAL LAYOUT
-    # ==========================================================
+
 
     plt.tight_layout(
         rect=[0, 0, 1, 0.97]

@@ -183,7 +183,7 @@ def create_lp_heatmap(n=8):
     plt.figtext(
         0.5,
         0.02,
-        'Darker colors represent variables closer to 1 in the LP relaxation',
+        'Brighter colors represent variables closer to 1 in the LP relaxation',
         ha='center',
         fontsize=12
     )
