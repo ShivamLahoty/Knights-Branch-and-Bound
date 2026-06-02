@@ -44,9 +44,7 @@ class ILPSolver:
         start = time.time()
 
         try:
-            # --------------------------------------------------------
-            # Build model
-            # --------------------------------------------------------
+           
             model = gp.Model(f"knights_{self.n}x{self.n}")
             model.setParam("OutputFlag", 0)
 
@@ -79,9 +77,7 @@ class ILPSolver:
                 attackers_of_j = self.attack_matrix[j]
 
                 if len(attackers_of_j) == 0:
-                    # No knight can ever threaten this square.
-                    # Problem is infeasible for this board size.
-                    # (Happens for n=1: the single square has no attackers)
+                   
                     result['status'] = 'infeasible'
                     result['solve_time'] = time.time() - start
                     return result
@@ -91,9 +87,6 @@ class ILPSolver:
                     name=f"cover_{j}"
                 )
 
-            # --------------------------------------------------------
-            # Solve
-            # --------------------------------------------------------
             model.optimize()
 
             result['solve_time'] = time.time() - start
@@ -157,14 +150,7 @@ class ILPSolver:
 
 
 def run_benchmark(sizes: list[int], verbose: bool = False):
-    """
-    Solve for multiple board sizes and print a summary table.
-    Useful for verifying the ILP and getting ground truth values.
-
-    Args:
-        sizes  : list of n values to test, e.g. [3, 4, 5, 6, 7, 8]
-        verbose: print Gurobi output for each solve
-    """
+   
     print(f"\n{'='*60}")
     print(f"ILP Benchmark")
     print(f"{'='*60}")
@@ -186,9 +172,7 @@ def run_benchmark(sizes: list[int], verbose: bool = False):
     return results
 
 
-# ------------------------------------------------------------------
-# Run directly to test
-# ------------------------------------------------------------------
+
 
 if __name__ == "__main__":
     if not GUROBI_AVAILABLE:

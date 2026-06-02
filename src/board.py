@@ -21,9 +21,6 @@ class Board:
         # attack_map[sq] = list of squares whose knight can reach sq
         self._attack_map = self._build_attack_map()
 
-    # ------------------------------------------------------------------
-    # Internal helpers
-    # ------------------------------------------------------------------
 
     def _in_bounds(self, r: int, c: int) -> bool:
         return 0 <= r < self.n and 0 <= c < self.n
@@ -56,19 +53,10 @@ class Board:
 
         return attack_map
 
-    # ------------------------------------------------------------------
-    # Public API
-    # ------------------------------------------------------------------
+
 
     def attackers(self, sq: int = None, row: int = None, col: int = None) -> list[int]:
-        """
-        Return the list of squares that can threaten the given square
-        with a knight move.
 
-        Can be called as:
-            board.attackers(sq=12)
-            board.attackers(row=2, col=2)
-        """
         if sq is None:
             if row is None or col is None:
                 raise ValueError("Provide either sq or both row and col.")
@@ -76,25 +64,11 @@ class Board:
         return self._attack_map[sq]
 
     def attacks_from(self, sq: int = None, row: int = None, col: int = None) -> list[int]:
-        """
-        Return the list of squares that a knight placed on the given
-        square can threaten.
 
-        (Equivalent to attackers because the knight-move graph is
-        undirected, but kept separate for code clarity.)
-        """
         return self.attackers(sq=sq, row=row, col=col)
 
     def get_attack_matrix(self) -> list[list[int]]:
-        """
-        Return the full attack map as a 2D list for use in the ILP.
 
-        attack_matrix[sq] = list of squares that threaten sq.
-
-        This is what the ILP constraint builder will consume:
-            for each square j:
-                sum(x[i] for i in attack_matrix[j]) >= 1
-        """
         return [self._attack_map[sq] for sq in range(self.num_squares)]
 
     def square_index(self, row: int, col: int) -> int:
@@ -110,18 +84,7 @@ class Board:
         return self._rc(sq)
 
     def display(self, placement: list[int] = None):
-        """
-        Pretty-print the board.
 
-        Args:
-            placement: optional list of square indices where knights
-                       are placed.  If None, just prints the grid.
-
-        Symbols:
-            K = knight
-            * = threatened (but not occupied)
-            . = not threatened
-        """
         occupied = set(placement) if placement else set()
 
         # Compute which squares are threatened by the placement
@@ -159,18 +122,7 @@ class Board:
             print()
 
     def is_valid_solution(self, placement: list[int]) -> bool:
-        """
-        Check whether a placement of knights satisfies the problem
-        constraints:
-            - Every square on the board (including occupied ones)
-              must be threatened by at least one knight.
-
-        Args:
-            placement: list of square indices with knights.
-
-        Returns:
-            True if every square is threatened, False otherwise.
-        """
+        
         occupied = set(placement)
         threatened = set()
         for sq in occupied:
@@ -181,9 +133,6 @@ class Board:
         return all(sq in threatened for sq in range(self.num_squares))
 
 
-# ------------------------------------------------------------------
-# Quick smoke test — run this file directly to verify correctness
-# ------------------------------------------------------------------
 
 if __name__ == "__main__":
     print("=" * 50)

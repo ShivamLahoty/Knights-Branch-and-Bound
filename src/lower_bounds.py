@@ -58,10 +58,6 @@ def node_lower_bound(
     return len(placed) + extra
 
 
-# ======================================================================
-# SMOKE TEST
-# ======================================================================
-
 if __name__ == "__main__":
     from board import Board
 
@@ -114,6 +110,6 @@ if __name__ == "__main__":
     print(f"  n=5 fixed={{}}               ->  node_lb = {lb0}")
     assert lb0 <= known[5], f"node_lb={lb0} exceeds opt={known[5]}"
 
-    # Full cover: node_lb should equal exactly the number placed
+   
 
     print("\nAll smoke tests passed!")

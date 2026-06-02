@@ -1,28 +1,3 @@
-"""
-bnb.py — Branch and Bound Solver for Knights on the Chessboard 2
-=================================================================
-
-Plugs directly into the project structure:
-  - Uses Board      from board.py      (attack map, validation, display)
-  - Uses ILPSolver  from ilp_solver.py (LP relaxation at each node)
-  - Returns         make_result(...)   from utils.py (standard result dict)
-
-Called by main.py as:
-    solver = BnBSolver(n=n, strategy=strategy, branch_var=branch_var, verbose=verbose)
-    result = solver.solve()
-
-Strategies supported
----------------------
-Node selection  (--strategy):
-    best_first      explore lowest LP bound first  [default, best pruning]
-    depth_first     explore deepest node first      [memory-efficient]
-    breadth_first   explore shallowest node first   [rarely used, for comparison]
-
-Variable selection  (--branch_var):
-    most_constrained    branch on var closest to 0.5  [default, strongest branching]
-    least_constrained   branch on var furthest from 0.5
-    first_fractional    first fractional variable found  [fast baseline]
-"""
 
 import heapq
 import time
@@ -77,9 +52,7 @@ def greedy_heuristic(board: Board) -> tuple[int, list[int]]:
     return len(placed), placed
 
 
-# ─────────────────────────────────────────────────────────────────────────────
-# Variable selection strategies
-# ─────────────────────────────────────────────────────────────────────────────
+
 
 def _free_fractionals(x_values: list[float], fixed_vars: dict) -> list[tuple[float, int]]:
 
@@ -120,7 +93,6 @@ def select_first_fractional(x_values: list[float], fixed_vars: dict) -> Optional
 
 class BnBSolver:
 
-    # Map string names (from main.py argparse) to selector functions
     VAR_SELECTORS = {
         "most_constrained":  select_most_constrained,
         "least_constrained": select_least_constrained,
@@ -162,8 +134,6 @@ class BnBSolver:
             raise ValueError(f"Unknown branch_var '{branch_var}'")
         self._var_select = instance_selectors[branch_var]
 
-    # ── Heap helpers ─────────────────────────────────────────────────────────
-
     def _priority(self, node: Node) -> tuple:
 
         if self.strategy == "best_first":
@@ -178,19 +148,15 @@ class BnBSolver:
         heapq.heappush(heap, (self._priority(node), counter[0], node))
         counter[0] += 1
 
-    # ── LP solve wrapper ─────────────────────────────────────────────────────
 
     def _solve_lp(self, fixed_vars: dict) -> dict:
 
         raw = self.lp_engine.solve(
             relax=True, fixed_vars=fixed_vars, verbose=False)
 
-        # Guarantee these keys always exist
         raw.setdefault("obj_value", None)
         raw.setdefault("x_values", [])
 
-        # If Gurobi gave us something other than optimal/infeasible,
-        # treat it as infeasible so the node gets pruned safely.
         if raw["status"] not in ("optimal", "infeasible"):
             if self.verbose:
                 print(
@@ -199,13 +165,11 @@ class BnBSolver:
 
         return raw
 
-    # ── Main solve ────────────────────────────────────────────────────────────
 
     def solve(self) -> dict:
 
         start_time = time.perf_counter()
 
-        # ── Stats counters ────────────────────────────────────────────────
         stats = {
             "nodes_explored":          0,
             "nodes_pruned_bound":      0,
@@ -213,10 +177,7 @@ class BnBSolver:
             "nodes_integer":           0,
         }
 
-        # ── Step 1: greedy heuristic → initial upper bound ────────────────
-        from heuristics import greedy_with_random_restarts
-        ub_count, ub_placement = greedy_with_random_restarts(
-            self.board, restarts=10)
+        ub_count, ub_placement = greedy_heuristic(self.board)
         best_val = ub_count
         best_placement = list(ub_placement)
 
@@ -225,7 +186,6 @@ class BnBSolver:
                   f"| branch_var={self.branch_var}")
             print(f"[BnB] Heuristic upper bound: {best_val} knights")
 
-        # ── Step 2: root node (LP relaxation with no fixings) ─────────────
         root_result = self._solve_lp({})
 
         if root_result["status"] == "infeasible":
@@ -252,13 +212,10 @@ class BnBSolver:
 
         root_node = Node(lb=root_lb, depth=0, fixed_vars={})
 
-        # ── Step 3: initialise the open-node heap ─────────────────────────
-        heap = []
-        # tie-breaker for heap (list so inner funcs can mutate)
-        counter = [0]
+        heap    = []
+        counter = [0]          # tie-breaker for heap (list so inner funcs can mutate)
         self._push(heap, root_node, counter)
 
-        # ── Step 4: main loop ─────────────────────────────────────────────
         while heap:
 
             # Time limit check
@@ -269,15 +226,12 @@ class BnBSolver:
 
             _, _, node = heapq.heappop(heap)
             stats["nodes_explored"] += 1
-
-            # ── Prune by bound (before solving) ───────────────────────────
-            # If this node's lb is already >= best integer solution,
-            # it can NEVER improve → skip it.
+            if self.verbose and stats["nodes_explored"] % 100 == 0:
+                print(f"[BnB] explored {stats['nodes_explored']} nodes | best={best_val}")
+            
             if node.lb >= best_val - 1e-6:
                 stats["nodes_pruned_bound"] += 1
                 continue
-
-            # ── Solve LP at this node ─────────────────────────────────────
             lp_result = self._solve_lp(node.fixed_vars)
 
             if lp_result["status"] == "infeasible":
@@ -288,15 +242,10 @@ class BnBSolver:
             lp_obj = lp_result["obj_value"]
             lp_values = lp_result["x_values"]
 
-            # ── Prune by bound (after solving) — use tighter of LP and node_lb ──
-            from lower_bounds import node_lower_bound
-            node_lb = node_lower_bound(self.board, node.fixed_vars)
-            effective_lb = max(lp_obj, node_lb)
-            if effective_lb >= best_val - 1e-6:
+            if lp_obj >= best_val - 1e-6:
                 stats["nodes_pruned_bound"] += 1
                 continue
 
-            # ── Check if LP solution is already all-integer ───────────────
             is_integer = all(
                 abs(v - round(v)) < 1e-6
                 for i, v in enumerate(lp_values)
@@ -320,7 +269,6 @@ class BnBSolver:
                               f"t={elapsed_so_far:.2f}s)")
                 continue   # no children needed — leaf node
 
-            # ── Select branching variable ─────────────────────────────────
             branch_idx = self._var_select(lp_values, node.fixed_vars)
 
             if branch_idx is None:
@@ -328,32 +276,14 @@ class BnBSolver:
                 # but safe fallback
                 continue
 
-            from heuristics import pick_branch_order
-            if self.branch_order == "lp_guided":
-                branch_vals = pick_branch_order(
-                    branch_idx, lp_values, strategy="lp_guided")
-            elif self.branch_order == "zero_first":
-                branch_vals = [0, 1]
-            else:
-                branch_vals = [1, 0]
+            branch_vals = [0, 1] if self.branch_order == "zero_first" else [1, 0]
 
 # ── Build child fixings list ──────────────────────────────────
             # Standard two children: fix=0 and fix=1
             children_fixings = []
             for val in branch_vals:
-                cf = dict(node.fixed_vars)
-                cf[branch_idx] = val
-                children_fixings.append(cf)
-
-            # ── Three-way: add LP-rounded third child ─────────────────────
-            if self.branch_order == "three_way":
-                lp_mid = 1 if lp_values[branch_idx] >= 0.5 else 0
-                cf_mid = dict(node.fixed_vars)
-                cf_mid[branch_idx] = lp_mid
-                if cf_mid not in children_fixings:
-                    children_fixings.append(cf_mid)
-
-            for child_fixings in children_fixings:
+                child_fixings = dict(node.fixed_vars)
+                child_fixings[branch_idx] = val
                 child_lp = self._solve_lp(child_fixings)
 
                 if child_lp["status"] == "infeasible":
@@ -380,6 +310,7 @@ class BnBSolver:
             status = "optimal"
         else:
             status = "timeout"
+        elapsed = time.perf_counter() - start_time
 
         if self.verbose:
             print(f"\n[BnB] ── Final Results ───────────────────────────────")
@@ -394,21 +325,23 @@ class BnBSolver:
             print(f"[BnB] ───────────────────────────────────────────────────")
 
         return make_result(
-            solver=f"{self.strategy}_{self.branch_var}",
-            n=self.n,
-            status=status,
-            num_knights=best_val,
-            placement=best_placement,
-            solve_time=elapsed,
-            nodes_explored=stats["nodes_explored"],
-            upper_bound=best_val,
-            lower_bound=root_lb,
-            extra={
-                "nodes_pruned_bound":      stats["nodes_pruned_bound"],
+            solver         = f"{self.strategy}_{self.branch_var}",
+            n              = self.n,
+            status         = status,
+            num_knights    = best_val,
+            placement      = best_placement,
+            solve_time     = elapsed,
+            nodes_explored = stats["nodes_explored"],
+            upper_bound    = best_val,
+            lower_bound    = root_lb,
+            extra = {
+                "strategy": self.strategy,
+                "branch_var": self.branch_var,
+                "nodes_pruned_bound": stats["nodes_pruned_bound"],
                 "nodes_pruned_infeasible": stats["nodes_pruned_infeasible"],
-                "nodes_integer":           stats["nodes_integer"],
-                "branch_order":            self.branch_order,
-            },
+                "nodes_integer": stats["nodes_integer"],
+                "branch_order": self.branch_order,
+                },
         )
 
 
@@ -419,15 +352,12 @@ if __name__ == "__main__":
     print("bnb.py smoke test")
     print("=" * 60)
 
-    # Test 1: single solve with verbose output
-    solver = BnBSolver(n=5, strategy="best_first",
-                       branch_var="most_constrained", verbose=True)
+    solver = BnBSolver(n=5, strategy="best_first", branch_var="most_constrained", verbose=True)
     result = solver.solve()
 
     board = Board(5)
     board.display(result["placement"])
 
-    # Test 2: verify against ILP ground truth
     from ilp_solver import ILPSolver
     ilp = ILPSolver(5)
     ilp_result = ilp.solve()
@@ -437,7 +367,6 @@ if __name__ == "__main__":
     match = ilp_result['num_knights'] == result['num_knights']
     print(f"Match: {'✓ PASSED' if match else '✗ FAILED'}")
 
-    # Test 3: compare all strategy combinations on n=5
     print("\n\nStrategy comparison on 5×5 board:")
     comparison = []
     for strat in ["best_first", "depth_first", "breadth_first"]:
