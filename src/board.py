@@ -16,9 +16,7 @@ class Board:
             raise ValueError("Board size n must be at least 1.")
         self.n = n
         self.num_squares = n * n
-
-        # Precompute for every square: which squares can ATTACK it
-        # attack_map[sq] = list of squares whose knight can reach sq
+        
         self._attack_map = self._build_attack_map()
 
 

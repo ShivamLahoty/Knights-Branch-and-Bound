@@ -51,10 +51,7 @@ def timed(fn):
         return result
     return wrapper
 
-
-# ------------------------------------------------------------------
 # Pretty printing
-# ------------------------------------------------------------------
 
 SEPARATOR = "=" * 60
 
@@ -104,10 +101,7 @@ def print_comparison_table(results: list[dict]):
 
     print()
 
-
-# ------------------------------------------------------------------
 # Result standardization
-# ------------------------------------------------------------------
 
 def make_result(
     solver: str,
@@ -157,10 +151,7 @@ def make_result(
         result.update(extra)
     return result
 
-
-# ------------------------------------------------------------------
 # Saving results
-# ------------------------------------------------------------------
 
 RESULTS_DIR = os.path.join(
     os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
@@ -224,9 +215,7 @@ def load_results_json(filename: str) -> list[dict]:
         return json.load(f)
 
 
-# ------------------------------------------------------------------
 # Validation helper
-# ------------------------------------------------------------------
 
 def verify_against_ilp(bnb_results: list[dict], ilp_results: dict) -> bool:
     """
@@ -258,10 +247,7 @@ def verify_against_ilp(bnb_results: list[dict], ilp_results: dict) -> bool:
 
     return all_correct
 
-
-# ------------------------------------------------------------------
 # Smoke test
-# ------------------------------------------------------------------
 
 if __name__ == "__main__":
     print_header("utils.py smoke test")

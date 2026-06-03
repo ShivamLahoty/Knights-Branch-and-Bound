@@ -1,17 +1,14 @@
 import os
 import sys
-# import random
-# import time
 import pandas as pd
 import matplotlib.pyplot as plt
-# from bnb import BnBSolver
+
 
 
 root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 # Point to the 'src' directory
 src_dir = os.path.join(root_dir, 'src')
 
-# Add 'src' to Python's system path so it can find utils.py and bnb.py
 if src_dir not in sys.path:
     sys.path.insert(0, src_dir)
     
@@ -23,31 +20,6 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import time
 import random
-
-
-# Now we can safely import from utils
-
-
-# def mock_bnb_solve(n: int, strategy: str, branch_var: str) -> dict:
-#     """
-#     A dummy solver to test the experiment pipeline without Gurobi or bnb.py.
-#     This generates fake data in the exact format utils.py expects.
-#     """
-#     time.sleep(random.uniform(0.01, 0.05))  # Simulate compute time
-    
-#     # Fake a placement array
-#     fake_placement = random.sample(range(n*n), k=n)
-    
-#     return make_result(
-#         solver=f"BnB_{strategy}",
-#         n=n,
-#         status='optimal',
-#         num_knights=len(fake_placement),
-#         placement=fake_placement,
-#         solve_time=random.uniform(0.1, 5.0),
-#         nodes_explored=random.randint(10, 1000),
-#         extra={'branch_var': branch_var}
-#     )
 
 
 def visualize_results(csv_path):

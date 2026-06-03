@@ -20,16 +20,13 @@ def run_ilp(n: int, verbose: bool = False):
     solver = ILPSolver(n)
     solver.solve_and_display()
 
-
-# ------------------------------------------------------------------
 # Mode: BnB solve
-# ------------------------------------------------------------------
 
 def run_bnb(n, strategy, branch_var, branch_order="zero_first", verbose=False):
     try:
         from bnb import BnBSolver
     except ImportError:
-        print("[ERROR] bnb.py not found yet — Harman is building this!")
+        print("[ERROR] bnb.py not found yet!")
         print("        Run with --mode ilp for now.")
         return
 
@@ -63,10 +60,7 @@ def run_benchmark(sizes: list[int]):
 
     ilp_benchmark(sizes=sizes)
 
-
-# ------------------------------------------------------------------
 # Mode: Verify BnB against ILP
-# ------------------------------------------------------------------
 
 def run_verify(n: int):
     try:
@@ -97,25 +91,19 @@ def run_verify(n: int):
     ilp_ground_truth = {n: ilp_result['num_knights']}
     verify_against_ilp([bnb_result], ilp_ground_truth)
 
-
-# ------------------------------------------------------------------
 # Mode: Full experiment suite
-# ------------------------------------------------------------------
 
 def run_experiments():
     try:
         from experiments.run_experiments import main as exp_main
     except ImportError:
         print(
-            "[ERROR] experiments/run_experiments.py not found yet — Shivam is building this!")
+            "[ERROR] experiments/run_experiments.py not found yet!")
         return
 
     exp_main()
 
-
-# ------------------------------------------------------------------
 # Mode: Display board only
-# ------------------------------------------------------------------
 
 def run_display(n: int):
     board = Board(n)
@@ -127,10 +115,7 @@ def run_display(n: int):
     print(f"Center square  : {center} at {board.square_coords(center)}")
     print(f"Center attacked by {len(attackers)} squares: {attackers}")
 
-
-# ------------------------------------------------------------------
 # CLI
-# ------------------------------------------------------------------
 
 def parse_args():
     parser = argparse.ArgumentParser(

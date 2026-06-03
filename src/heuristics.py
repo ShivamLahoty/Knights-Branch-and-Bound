@@ -94,9 +94,6 @@ SELECTORS = {
    
 }
 
-
-
-
 def pick_branch_order(
     sq: int,
     x_values: list[float],

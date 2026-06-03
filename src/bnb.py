@@ -52,8 +52,6 @@ def greedy_heuristic(board: Board) -> tuple[int, list[int]]:
     return len(placed), placed
 
 
-
-
 def _free_fractionals(x_values: list[float], fixed_vars: dict) -> list[tuple[float, int]]:
 
     result = []
@@ -278,7 +276,6 @@ class BnBSolver:
 
             branch_vals = [0, 1] if self.branch_order == "zero_first" else [1, 0]
 
-# ── Build child fixings list ──────────────────────────────────
             # Standard two children: fix=0 and fix=1
             children_fixings = []
             for val in branch_vals:
@@ -304,7 +301,7 @@ class BnBSolver:
                 self._push(heap, child_node, counter)
 
         # WITH THIS:
-        elapsed = time.perf_counter() - start_time   # ← THIS is the bug fix
+        elapsed = time.perf_counter() - start_time   
 
         if not heap:
             status = "optimal"
