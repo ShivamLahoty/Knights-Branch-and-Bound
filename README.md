@@ -156,32 +156,45 @@ All six combinations are benchmarked and statistically compared.
 
 ## 📁 Project Structure
 
-```
+```text
 knights-branch-and-bound/
 │
 ├── main.py                      # CLI entry point  (--mode solve / experiment)
 ├── requirements.txt             # pip dependencies
+├── README.md                    # Project documentation
 ├── .gitignore
 │
 ├── src/                         # Core solver modules
+│   ├── __pycache__/
+│   ├── bnb.py                   # Branch and Bound core logic
 │   ├── board.py                 # Board representation & knight-move graph
-│   ├── ilp_solver.py            # LP relaxation wrapper (SciPy linprog)
-│   └── utils.py                 # Results helpers: make_result, save_csv,
-│                                #   print_comparison_table, print_header
+│   ├── heuristics.py            # Heuristic functions for warm start
+│   ├── ilp_solver.py            # LP relaxation wrapper
+│   ├── lower_bounds.py          # Bounding calculations
+│   └── utils.py                 # Results helpers & formatting
 │
 ├── experiments/                 # Experiment harness
-│   ├── run_experiments.py       # Benchmarks all strategy combos
+│   ├── __pycache__/
+│   ├── results/                 # Output directory for benchmarks and visualizations
+│   │   ├── bnb_complete_dashboard.png
+│   │   ├── bnb_strategies_comparison.csv
+│   │   ├── bnb_strategy_comparison.jpg
+│   │   ├── lp_heatmap.png
+│   │   └── optimal_board.png
+│   ├── board_visualization.py   # Scripts for rendering board states
+│   └── run_experiments.py       # Benchmarks all strategy combos
 │
-├── tests/                       # Unit tests — board structure & solver
+├── tests/                       # Unit tests
+│   └── test_board.py            # Tests for board structure validation
 │
 └── report/                      # Written analysis & findings
-```
-
----
+    └── Report_Knights_Branch_and_Bound.pdf
 
 ## 🚀 Getting Started
 
 **Prerequisites:** Python 3.8+ · No commercial solver licence required
+
+---
 
 ```bash
 # 1. Clone
